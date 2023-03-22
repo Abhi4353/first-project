@@ -11,7 +11,7 @@ const Home = () => {
 <Customers/>
 <Benefits/>
  
-  </Layout>
+   </Layout>
   )
 }
 
