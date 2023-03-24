@@ -217,3 +217,14 @@ i.fa.fa-cart-plus {
   padding: 40px;
   color: white;
 }
+
+
+.light {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+.dark {
+  background-color: #333333;
+  color: #ffffff;
+}

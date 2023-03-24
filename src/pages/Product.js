@@ -3,6 +3,8 @@ import Layout from '../layout/Layout';
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import ThemeContext from '../components/ThemeContext';
+import { useContext } from 'react';
 
 const Product = () => {
     const [myData, setMyData] = useState([]);
@@ -86,15 +88,16 @@ const Product = () => {
       if(filter2){
       checkprice();
       }},[filter2]);
-
+      const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
     <Layout>
-    {/* <div className='container-fluid product-component'> */}
+    
       {loader ? (
         <div className="loading-spinner"></div>
       ) : (
         <>
+        <div className={theme}>
           <div className="container-fluid text-center p-5 product-component2">
             <div className="row">
               <div className="col-4">
@@ -153,9 +156,10 @@ const Product = () => {
               ))}
             </div>
           </div>
+          </div>
         </>
       )}
-    {/* </div> */}
+   
     </Layout>
   )
 }

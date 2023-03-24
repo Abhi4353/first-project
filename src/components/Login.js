@@ -20,7 +20,7 @@ const Login = () => {
       }
       else{
         toast.error("Wrong Credentials")
-        console.log(toast)
+        // console.log(toast)
         
       }
     }

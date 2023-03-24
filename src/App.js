@@ -7,10 +7,12 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Layout from "./layout/Layout";
 import Layout2 from "./layout/Layout2";
+import ThemeProvider from "./components/ThemeProvider";
 
 function App() {
   return (
     <>
+    <ThemeProvider>
       <Router>
         
           <Routes>
@@ -23,7 +25,7 @@ function App() {
           </Routes>
         
       </Router>
-    
+      </ThemeProvider>
     </>
   );
 }

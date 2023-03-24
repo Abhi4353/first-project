@@ -1,9 +1,13 @@
 import React from 'react'
 import Layout from '../layout/Layout'
+import ThemeContext from '../components/ThemeContext'
+import { useContext } from 'react'
 
 const Contact = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
   return (
     <Layout>
+      <div className={theme}>
       <div className='container-fluid contact-component'>
       <h1>Fill This Form To Contact Us</h1>
       </div>
@@ -31,6 +35,7 @@ const Contact = () => {
     </div>
     <div>
       nothing
+    </div>
     </div>
     </Layout>
   )

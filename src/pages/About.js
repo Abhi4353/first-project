@@ -3,10 +3,14 @@ import Layout from '../layout/Layout'
 import homepage1 from '../images/homepage1.jpg'
 import homepage2 from '../images/homepage2.jpg'
 import Customers from '../components/Customers'
+import { useContext } from 'react'
+import ThemeContext from '../components/ThemeContext'
 
 const About = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
   return (
     <Layout>
+      <div className={theme}>
       <div className='container-fluid about-body'>
       <h1>Why You Choose Us</h1>
       </div>
@@ -47,6 +51,7 @@ const About = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
     </Layout>
   )

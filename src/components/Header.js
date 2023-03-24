@@ -1,13 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
+import ThemeContext from "./ThemeContext";
 
 
 const Header = () => {
- 
+  const { theme, toggleTheme } = useContext(ThemeContext);
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark ">
+    <div className={theme}>
+      <nav className="navbar navbar-expand-lg ">
   <div className="container">
     <Link className="navbar-brand" to="/home" style={{color:"#43c9be"}} > <b> Shop </b>  </Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,10 +33,11 @@ const Header = () => {
       
     </div>
     <i className="fa fa-cart-plus"></i>
-    <button className="btn btn-secondary m-3" type="button">Dark Mode</button>
+    <button className="btn btn-secondary m-3" type="button" onClick={toggleTheme}>Dark Mode</button>
     <button className="btn btn-light m-3" type="button">Light Mode</button>
   </div>
 </nav>
+</div>
     </>
   );
 };
