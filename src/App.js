@@ -7,10 +7,10 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Layout from "./layout/Layout";
 import Layout2 from "./layout/Layout2";
+
 function App() {
   return (
     <>
-    {/* <Layout2/> */}
       <Router>
         
           <Routes>
@@ -23,6 +23,7 @@ function App() {
           </Routes>
         
       </Router>
+    
     </>
   );
 }

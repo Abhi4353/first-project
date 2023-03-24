@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+
 
 const Header = () => {
+ 
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark ">
@@ -28,6 +31,8 @@ const Header = () => {
       
     </div>
     <i className="fa fa-cart-plus"></i>
+    <button className="btn btn-secondary m-3" type="button">Dark Mode</button>
+    <button className="btn btn-light m-3" type="button">Light Mode</button>
   </div>
 </nav>
     </>
