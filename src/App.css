@@ -228,3 +228,8 @@ i.fa.fa-cart-plus {
   background-color: #333333;
   color: #ffffff;
 }
+
+/* CSS For Single Page Buttons */
+.single-product-button {
+  margin-left: 185px;
+}

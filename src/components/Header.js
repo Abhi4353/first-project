@@ -34,7 +34,7 @@ const Header = () => {
     </div>
     <i className="fa fa-cart-plus"></i>
     <button className="btn btn-secondary m-3" type="button" onClick={toggleTheme}>Dark Mode</button>
-    <button className="btn btn-light m-3" type="button">Light Mode</button>
+    {/* <button className="btn btn-light m-3" type="button">Light Mode</button> */}
   </div>
 </nav>
 </div>

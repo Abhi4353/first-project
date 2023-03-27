@@ -115,7 +115,7 @@ const Product = () => {
                   ))}
                 </select>
               </div>
-
+                
               <div className="col-4">
                <h3>Fiter By Price</h3>
                <select onChange={(e)=>setFilter2(e.target.value)}>
@@ -128,6 +128,7 @@ const Product = () => {
               </div>
             </div>
           </div>
+          
 
           <div className="container-fluid product-component">
             <div className="row">
@@ -150,7 +151,7 @@ const Product = () => {
                     <button type="button" className="btn btn-primary mb-4" onClick={()=>addtoCart()}>
                       Add to Cart
                     </button>
-                    {/* <button type="button" className="btn btn-danger mb-4" onClick={()=>deletefromCart()}>Remove</button> */}
+                    <button type="button" className="btn btn-danger mb-4" onClick={()=>deletefromCart()}>Remove</button>
                   </div>
                 </div>
               ))}
