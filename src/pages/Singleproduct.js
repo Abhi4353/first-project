@@ -34,7 +34,7 @@ const Singleproduct = () => {
       <>
       <div className={theme}>
       <div className="container-fluid text-center p-2 product-component2"><h1 className="text-center m-5">Single Product</h1></div>
-        <div className="container m-5">
+        <div className="container p-5">
           <div className="row">
             <div className="col-6 single-product-img">
               <img className="img-fluid w-50 bg-light" src={mydata?.image} />

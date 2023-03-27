@@ -136,7 +136,7 @@
 /* About Us PAge Css */
 .about-image img{
   width: 100%;
-  margin-top: 30px;
+  margin-top: 80px;
 }
 .about-body {
   padding: 40px;
@@ -148,16 +148,22 @@
     color: #538a8c;
 }
 .about-body2 p{
-  margin-top: 60px;
+  margin: 60px 0 0 0;
+}
+.about-body-para{
+  margin: 120px 0 0 0;
 }
 .about-body3{
-  margin: 70px;
+  /* margin: 70px; */
+  padding: 50px;
     color: #538a8c;
 }
 .about-body3 p{
   margin:45px;
 }
-
+.about-image2{
+  margin-top:50px;
+}
 
 
 /* Navbar Css */

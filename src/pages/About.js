@@ -22,7 +22,7 @@ const About = () => {
            </div>
          </div>
          <div className='col'>
-          <div className='container'>
+          <div className='container about-body-para'>
             <h1><b>History of our Company</b></h1>
             <p>Amazon was founded in the garage of Bezos' rented home in Bellevue, Washington. Bezos' parents invested almost $250,000
                in the start-up. On July 16, 1995, Amazon opened as an online bookseller, selling the world's largest collection of books
