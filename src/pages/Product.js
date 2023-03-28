@@ -82,7 +82,7 @@ const Product = () => {
        const filterData = abc.data.filter((ele)=>ele.price < filter2)
        setMyData(filterData)
        setLoader(false)
-       console.log("price",filterData)
+      //  console.log("price",filterData)
       }
     useEffect(()=>{
       if(filter2){

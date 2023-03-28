@@ -24,7 +24,7 @@ const Singleproduct = () => {
     useEffect(() => {
       getSingleData();
     }, []);
-    console.log(mydata);
+    // console.log(mydata);
   return (
     <Layout>
     <>
