@@ -8,6 +8,7 @@ import Contact from "./pages/Contact";
 import Layout from "./layout/Layout";
 import Layout2 from "./layout/Layout2";
 import ThemeProvider from "./components/ThemeProvider";
+import FormData from "./pages/FormData";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/singleproduct/:id" element={<Singleproduct />} />
+            <Route exact path="/contactdata" element={<FormData />}/>
           </Routes>
         
       </Router>
