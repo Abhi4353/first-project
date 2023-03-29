@@ -260,4 +260,12 @@ background: #e87171;
 }
 .post-form{
   background: #ffffff;
+ margin-top: 10px;
+}
+.comment-element{
+  border: 1px solid #282c34;
+  margin: 20px;
+}
+.comment-element label{
+  font-weight: 700;
 }
