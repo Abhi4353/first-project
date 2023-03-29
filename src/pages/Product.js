@@ -12,9 +12,10 @@ const Product = () => {
     const [category, setCategory] = useState([]);
     const [filter, setFilter] = useState();
      const [count , setCount] =useState(0)
-     const [price, setPrice] =useState([]);
+     const [price, setPrice] =useState(3);
      const [filter2,setFilter2]=useState();
      const[cartItems, setCartItems]=useState([]);
+     const[showbutton,setshowbutton]=useState(true);
   
     const getApiData = async () => {
       setLoader(true);
@@ -89,7 +90,15 @@ const Product = () => {
       checkprice();
       }},[filter2]);
       const { theme, toggleTheme } = useContext(ThemeContext);
-
+    
+      const updateprice = () =>{
+        if(price>=19){
+          setshowbutton(false);
+        }
+        else{
+        setPrice(price+3)
+        }
+      }
   return (
     <Layout>
     
@@ -132,7 +141,8 @@ const Product = () => {
 
           <div className="container-fluid product-component">
             <div className="row">
-              {myData.map((ele, key) => (
+              
+              {myData.slice(0,price).map((ele, key) => (
                 <div className="col-4 pro_col">
                   <div key={key} className="products">
                     <Link className="rem" to={`/singleproduct/${ele?.id}`}>
@@ -155,6 +165,9 @@ const Product = () => {
                   </div>
                 </div>
               ))}
+              <div className='container text-center'>
+                {showbutton && <button type="button" className='btn btn-primary' onClick={updateprice}>Access More</button>}
+              </div>
             </div>
           </div>
           </div>
