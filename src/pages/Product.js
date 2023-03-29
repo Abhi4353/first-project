@@ -137,7 +137,7 @@ const Product = () => {
                   <div key={key} className="products">
                     <Link className="rem" to={`/singleproduct/${ele?.id}`}>
                       <div className="pro-img">
-                        {" "}
+                        {/* {" "} */}
                         <img src={ele?.image} className="w-25"></img>
                       </div>
                     </Link>

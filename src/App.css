@@ -239,3 +239,25 @@ i.fa.fa-cart-plus {
 .single-product-button {
   margin-left: 185px;
 }
+
+.posts-component{
+  width: 29% !important;
+  border: 1px solid #282c34;
+  height: 337px;
+  margin: 30px 10px 40px 40px;
+  text-align: center;
+}
+.posts-col h1{
+background: #e87171;
+}
+.single-post{
+  border:1px solid #282c34;
+}
+.post-form p{
+ font-size: 30px;
+ font-weight: 700;
+ margin-top: 30px;
+}
+.post-form{
+  background: #ffffff;
+}

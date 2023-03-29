@@ -9,6 +9,8 @@ import Layout from "./layout/Layout";
 import Layout2 from "./layout/Layout2";
 import ThemeProvider from "./components/ThemeProvider";
 import FormData from "./pages/FormData";
+import Posts from "./pages/Posts";
+import Singleposts from "./pages/Singleposts";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/singleproduct/:id" element={<Singleproduct />} />
             <Route exact path="/contactdata" element={<FormData />}/>
+            <Route exact path="/posts" element={<Posts />}/>
+            <Route exact path="/singleposts/:id" element={<Singleposts />}/>
           </Routes>
         
       </Router>

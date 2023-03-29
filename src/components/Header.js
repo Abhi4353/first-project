@@ -54,6 +54,11 @@ const Header = () => {
                     Contact Us
                   </Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/posts">
+                    Posts
+                  </Link>
+                </li>
               </ul>
             </div>
             <i className="fa fa-cart-plus"></i>
