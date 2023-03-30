@@ -92,7 +92,7 @@ const Product = () => {
       const { theme, toggleTheme } = useContext(ThemeContext);
     
       const updateprice = () =>{
-        if(price>=19){
+        if(price>18){
           setshowbutton(false);
         }
         else{
@@ -166,7 +166,7 @@ const Product = () => {
                 </div>
               ))}
               <div className='container text-center'>
-                {showbutton && <button type="button" className='btn btn-primary' onClick={updateprice}>Access More</button>}
+                {showbutton ? <button type="button" className='btn btn-primary' onClick={updateprice}>Access More</button> : ""}
               </div>
             </div>
           </div>
