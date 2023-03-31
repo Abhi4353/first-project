@@ -11,6 +11,7 @@ import ThemeProvider from "./components/ThemeProvider";
 import FormData from "./pages/FormData";
 import Posts from "./pages/Posts";
 import Singleposts from "./pages/Singleposts";
+import Registration from "./components/Registration";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route exact path="/contactdata" element={<FormData />}/>
             <Route exact path="/posts" element={<Posts />}/>
             <Route exact path="/singleposts/:id" element={<Singleposts />}/>
+            <Route exact path="/register" element={<Registration />}/>
           </Routes>
         
       </Router>

@@ -3,7 +3,7 @@ import Login from '../components/Login'
 
 const Layout2 = () => {
   return (
-   <Login/>
+   <Login />
   )
 }
 

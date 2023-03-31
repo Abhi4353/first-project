@@ -4,31 +4,36 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { BACkEND_URL } from '../config/config';
+import axios from 'axios';
 
 const Login = () => {
     const[email,setEmail]=useState("");
     const[password,setPassword]=useState("");
     const[check,setCheck]=useState(false);
     const navigate = useNavigate();
-    //  console.log(data)
-    const checklogin = () => {
-        
-        //  console.log(email==data.email , password==data.password)
-      if(email==data.email && password==data.password)
-      {
-        navigate('/home');
-      }
-      else{
-        toast.error("Wrong Credentials")
-        // console.log(toast)
-        
-      }
+   
+    const checklogin = async() => {
+        const login = await axios.post(`${BACkEND_URL}/login`, {
+          Email: email,
+          Password : password
+        })
+        .then(function (response) {
+          console.log(response)
+          if(response.data == true){
+            navigate('/home');
+          }
+          else{
+            toast.error("Please enter correct username or password")
+          }
+        })
+        // .catch(function (error) {
+        //   console.log(error);
+        // });
     }
-    // const navigate = useNavigate();
-    // useEffect(()=>{
-    //     navigate('/home', { check: true });
-    // })
+  
   return (
+    
     <div className='container-fluid login-form'>
     <div className='row'>
        <div className='col'>
@@ -43,6 +48,7 @@ const Login = () => {
            <button type="button" className='btn btn-primary mt-3 mb-3 w-100' onClick={()=>checklogin()}>Login</button>
            {/* <input type="submit" value="Forget password" className='mt-3'></input> */}
            {/* <p>{check==true ?"Please enter correct Email Id or Password" : ""}</p> */}
+           <p>Don't Have Account<Link to="/register">Register</Link></p>
            <ToastContainer position='top-center'/>
            </div>
          </form>

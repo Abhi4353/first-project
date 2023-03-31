@@ -19,7 +19,7 @@ const Singleposts = () => {
     const res = await axios.get(`https://gorest.co.in/public/v2/posts/${id}`);
     setMyData(res.data);
     setLoader(false);
-    // console.log(res);
+    // console.log(res);   
   };
 
   const getcommentdata = async () => {

@@ -16,8 +16,15 @@
 .login-form-body {
   padding: 20px;
 }
+.login-form-body a{
+  text-decoration: none;
+  margin-left: 10px;
+}
 .login-form-body h1{
  padding:10px;
+}
+.login-form-body p{
+  text-align: center;
 }
 
 /* css for testing purpose */
