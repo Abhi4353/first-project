@@ -1,7 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Layout from '../layout/Layout'
 import ThemeContext from '../components/ThemeContext'
 import { useContext } from 'react'
+import axios from 'axios'
+import { BACkEND_URL } from '../config/config'
+import { ToastContainer, toast } from 'react-toastify'
 
 const Contact = () => {
   const { theme} = useContext(ThemeContext);
@@ -10,44 +13,41 @@ const Contact = () => {
   const[email,setEmail]=useState("");
   const[gender,setGender]=useState("");
   const[message,setMessage]=useState("");
-  // const[count]=useState(0);
-  const[formData,setFormData]=useState({
-    id:"",
-    firstname:" ",
-    lastname:" ",
-    email:" ",
-    gender:" ",
-    message:" "
-  });
-  const [data,setData] = useState([
-    {firstname:"Abhishek",lastname:"Sharma",email:"as2271614@gmail.com",gender:"Male", message:"Message to be displayed" },
-    {firstname:"Rishav",lastname:"Kumar",email:"rishavkumar2018@gmail.com",gender:"Male", message:"Rishav Kumar" },
-    {firstname:"Ajay",lastname:"Sharma",email:"badshorockstar@gmail.com",gender:"Male", message:"Ajay Sharma" },
-    {firstname:"Vijay",lastname:"Kumar",email:"Vijaymanu@gmail.com",gender:"Male", message:"Vijay Kumar" },
-])
 
-  // const submitformdata = () => {
-  //   setFormData({
-  //   firstname:{fname},
-  //   lastname:{lname},
-  //   email:{email},
-  //   gender:{gender},
-  //   message:{message}
-  //     })
-      
-  // }
-  const addformdata =event=> {
-  event.preventDefault();
-  setFormData({
-    firstname:{fname},
-    lastname:{lname},
-    email:{email},
-    gender:{gender},
-    message:{message}
-      })
-      setData([data.concat(formData)])
-      console.log(data)
-  }
+ 
+
+
+  const addformdata = async ()=> { 
+    if(
+      fname == "" && 
+      lname == "" && 
+      email == "" && 
+      gender == "" && 
+      message == "" 
+    ) {
+      toast.error("please fill out all the fields")
+    }
+    else{
+  const res = await axios.post(`${BACkEND_URL}/contact`, {
+     Firstname : fname,
+     Lastname : lname,
+     EmailId : email,
+     Gender : gender,
+     Message : message,
+  })
+  .then(function(response) {
+    // console.log(response.status)
+    toast.success("Thanks for contacting us")
+  })
+  .catch(function(error){
+    // console.log(error.response.error)
+    toast.error("Something went wrong")
+  })
+} }
+  // useEffect(() =>{
+  //  addformdata();
+  // }, [])
+ 
   return (
     <Layout>
       <div className={theme}>
@@ -71,7 +71,7 @@ const Contact = () => {
                 <label>Enter Your Message Here</label>
                 <textarea className='form-control' onChange={(e)=>setMessage(e.target.value)}></textarea><br></br>
                 <button type='button' className='btn btn-primary mt-2' onClick={addformdata} >Submit</button>
-               
+                <ToastContainer position="top-center" />
               </div>
               </form>
          </div>

@@ -5,13 +5,14 @@ import Product from "./pages/Product";
 import Singleproduct from "./pages/Singleproduct";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import Layout from "./layout/Layout";
 import Layout2 from "./layout/Layout2";
 import ThemeProvider from "./components/ThemeProvider";
 import FormData from "./pages/FormData";
 import Posts from "./pages/Posts";
 import Singleposts from "./pages/Singleposts";
 import Registration from "./components/Registration";
+import Adminlogin from "./admin/Adminlogin";
+import Dashboard from "./admin/adminpages/Dashboard";
 
 function App() {
   return (
@@ -30,6 +31,8 @@ function App() {
             <Route exact path="/posts" element={<Posts />}/>
             <Route exact path="/singleposts/:id" element={<Singleposts />}/>
             <Route exact path="/register" element={<Registration />}/>
+            <Route path ="/admin" element={<Adminlogin />}/>
+            <Route path ="/admindashboard" element ={<Dashboard/>}/>
           </Routes>
         
       </Router>
