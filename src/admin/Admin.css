@@ -1,0 +1,45 @@
+.header-admin{
+    background-color: #ced3da;
+}
+.header-admin a{
+    font-weight: 700;
+}
+.sidebar-dashboard{
+    /* width: 20% !important; */
+    height: 100%;
+    float: left;
+    background: #b0b8ef !important;
+ 
+}
+.navbar-border{
+    border: 5px solid #a84e4e;
+    margin-left: 900px;
+}
+.navbar-dashboard ul li a{
+    text-decoration: none;
+    color: #a84e4e;
+    font-weight: 700;
+    font-size: 20px;
+    /* padding:20px; */
+   
+}
+.navbar-dashboard ul li{
+    list-style: none;
+    margin-top: 80px;
+}
+.navbar-dashboard ul{
+    /* margin: 0px; */
+  
+}
+.admin-footer {
+    bottom: 0px;
+}
+
+
+.users-table{
+    border:5px solid #a84e4e;
+    margin: 20px;
+}
+.users-table tr, td{
+ border: 1px solid #a84e4e !important;
+}

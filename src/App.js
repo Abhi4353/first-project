@@ -13,6 +13,10 @@ import Singleposts from "./pages/Singleposts";
 import Registration from "./components/Registration";
 import Adminlogin from "./admin/Adminlogin";
 import Dashboard from "./admin/adminpages/Dashboard";
+import Products from "./admin/pages/Products";
+import Users from "./admin/pages/Users";
+import Userregistration from "./admin/pages/Userregistration";
+import ContactData from "./admin/pages/ContactData";
 
 function App() {
   return (
@@ -33,6 +37,10 @@ function App() {
             <Route exact path="/register" element={<Registration />}/>
             <Route path ="/admin" element={<Adminlogin />}/>
             <Route path ="/admindashboard" element ={<Dashboard/>}/>
+            <Route path = "/adminproducts" element={<Products />}/>
+            <Route path ="/registeredusers" element={<Users/>}/>
+            <Route path="/userregistration" element={<Userregistration />}/>
+            <Route path="/contactformcheck" element={<ContactData />}/>
           </Routes>
         
       </Router>

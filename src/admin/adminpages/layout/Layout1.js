@@ -1,10 +1,15 @@
 import React from 'react'
-
-const Layout1 = () => {
+import Header from '../components/Header'
+import Sidebar from '../components/Sidebar'
+import Footer from '../components/Footer'
+const Layout1 = (props) => {
   return (
-    <div>
-      
-    </div>
+   <>
+   <Header/>
+   <Sidebar />
+   {props.children}
+   {/* <Footer /> */}
+   </>
   )
 }
 

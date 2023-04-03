@@ -81,8 +81,10 @@ const Singleposts = () => {
             </div>
           </div>
           <div className="container-fluid text-center">
-            <div className="row mt-5 product-component2">
+            <div className="row ">
+              <div className="mt-5 product-component2">
               <h1>Let Us Check The Comments on That Post</h1>
+              </div>
             </div>
           </div>
           <div className="container w-50">

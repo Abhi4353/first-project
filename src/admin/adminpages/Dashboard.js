@@ -1,10 +1,14 @@
 import React from 'react'
+import Layout1 from './layout/Layout1'
 
-const Dashboard = () => {
+const Dashboard = (props) => {
+
   return (
-    <div className='container'>
-      
-    </div>
+    <>
+ <Layout1>
+{props.children}
+ </Layout1>
+  </>
   )
 }
 
