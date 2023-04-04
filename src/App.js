@@ -17,6 +17,7 @@ import Products from "./admin/pages/Products";
 import Users from "./admin/pages/Users";
 import Userregistration from "./admin/pages/Userregistration";
 import ContactData from "./admin/pages/ContactData";
+import Createposts from "./admin/pages/Createposts";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
             <Route path ="/registeredusers" element={<Users/>}/>
             <Route path="/userregistration" element={<Userregistration />}/>
             <Route path="/contactformcheck" element={<ContactData />}/>
+            <Route path="/createposts" element={<Createposts />}/>
           </Routes>
         
       </Router>

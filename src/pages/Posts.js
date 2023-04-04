@@ -3,6 +3,7 @@ import Layout from "../layout/Layout";
 import axios from "axios";
 import ThemeContext from "../components/ThemeContext";
 import { Link } from "react-router-dom";
+import { BACkEND_URL } from "../config/config";
 
 const Posts = () => {
     const[myData,setMyData]=useState([]);
@@ -11,7 +12,7 @@ const Posts = () => {
 
     const getApiData = async () =>{
       setLoader(true);
-     const res = await axios.get('https://gorest.co.in/public/v2/posts');
+     const res = await axios.get(`${BACkEND_URL}/posts`);
     //  console.log(res)
      setMyData(res.data);
      setLoader(false);
@@ -39,10 +40,10 @@ const Posts = () => {
       {myData.map((ele, key)=>(
         <div className="col-4 posts-component">
           <div key={key} className="container posts-col">
-            <h4>{ele?.title.slice(0,40)}</h4>
-            <Link className="rem" to={`/singleposts/${ele?.id}`}>
-            <h1>{ele?.id}</h1>
-            </Link>
+            <h4>{ele?.Title}</h4>
+            {/* <Link className="rem" to={`/singleposts/${ele?.id}`}> */}
+            <h1>{ele?.Id}</h1>
+            {/* </Link> */}
           </div>
         </div>
       ))}

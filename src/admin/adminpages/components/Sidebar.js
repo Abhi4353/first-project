@@ -16,7 +16,7 @@ const Sidebar = () => {
                <Link to="/contactformcheck">Contact Form Data</Link>
              </li>
              <li>
-               <Link to="#">Posts</Link>
+               <Link to="/createposts">Create Posts</Link>
              </li>
              <li>
                <Link to="#">Comments</Link>
