@@ -250,15 +250,32 @@ i.fa.fa-cart-plus {
 .posts-component{
   width: 29% !important;
   border: 1px solid #282c34;
-  height: 337px;
+  height: 350px;
   margin: 30px 10px 40px 40px;
   text-align: center;
+  background-color: #ecf1f9;
 }
-.posts-col h1{
-background: #e87171;
+.posts-component p{
+  color:#a84e4e;
 }
-.single-post{
-  border:1px solid #282c34;
+.posts-col h4{
+color:#a84e4e;
+margin-top: 10px;
+font-weight: 700;
+}
+
+.posts-col img {
+  height:250px;
+  width:300px;
+}
+.single-post img{
+  height:500px;
+  width: 700px;
+}
+.single-post h1{
+  color:#a84e4e;
+  font-weight: 700;
+  margin-top: 80px;
 }
 .post-form p{
  font-size: 30px;

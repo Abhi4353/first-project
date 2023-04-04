@@ -34,7 +34,7 @@ function App() {
             <Route path="/singleproduct/:id" element={<Singleproduct />} />
             <Route exact path="/contactdata" element={<FormData />}/>
             <Route exact path="/posts" element={<Posts />}/>
-            <Route exact path="/singleposts/:id" element={<Singleposts />}/>
+            <Route exact path="/singlepost/:_id" element={<Singleposts />}/>
             <Route exact path="/register" element={<Registration />}/>
             <Route path ="/admin" element={<Adminlogin />}/>
             <Route path ="/admindashboard" element ={<Dashboard/>}/>
