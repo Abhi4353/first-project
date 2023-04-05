@@ -1,10 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import ThemeContext from "./ThemeContext";
+import { ToastContainer,toast } from "react-toastify";
+import { Navigate } from "react-router-dom";
 
 const Header = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const navigate = useNavigate();
+  const logout = () => {
+    toast.success("Logout successfull")
+    localStorage.removeItem("tokenforlogin") 
+     navigate('/')
+  }
   return (
     <>
       <div className={theme}>
@@ -67,7 +75,8 @@ const Header = () => {
             >
               Dark Mode
             </button>
-            {/* <button className="btn btn-light m-3" type="button">Light Mode</button> */}
+            <button className="btn btn-light m-3" type="button" onClick={logout}>Logout</button>
+            <ToastContainer position="top-center" />
           </div>
         </nav>
       </div>

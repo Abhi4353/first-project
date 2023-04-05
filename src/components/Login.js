@@ -22,6 +22,7 @@ const Login = () => {
           console.log(response)
           if(response.data == true){
             navigate('/home');
+            localStorage.setItem("tokenforlogin", 5)
           }
           else{
             toast.error("Please enter correct username or password")

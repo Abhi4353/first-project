@@ -1,7 +1,16 @@
 import React from 'react'
 import "../../Admin.css"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { ToastContainer,toast } from 'react-toastify'
+import { Navigate } from 'react-router-dom'
 const Sidebar = () => {
+
+  const navigate = useNavigate();
+  const logout = () =>{
+    localStorage.removeItem("token")
+    toast.success("Logout successfull")
+     navigate('/admin')
+   }
   return (
     <div className='container-fluid sidebar-dashboard w-auto h-auto'>
        <nav className='navbar navbar-dashboard'>
@@ -40,9 +49,9 @@ const Sidebar = () => {
                <Link to="/adminproducts">Products</Link>
              </li>
              <li>
-               <Link to="/adminproducts">Products</Link>
+             <p className="dropdown-item"  style={{cursor:"pointer"}} onClick={logout}>Logout</p>
              </li>
-             
+             <ToastContainer position='top-center'/>
           </ul>
        </nav>
     </div>

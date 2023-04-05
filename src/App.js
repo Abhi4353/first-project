@@ -20,49 +20,38 @@ import ContactData from "./admin/pages/ContactData";
 import Createposts from "./admin/pages/Createposts";
 import Comments from "./admin/pages/Comments";
 import Privateroutes from "./Privateroutes";
+import Privateloginroute from "./Privateloginroute";
 
 function App() {
   return (
     <>
-    <ThemeProvider>
-      <Router>
-        
+      <ThemeProvider>
+        <Router>
           <Routes>
-          <Route path ="/admin" element={<Adminlogin />}/>
-
-          <Route path="/" element={<Privateroutes />} >
-            <Route path ="/admindashboard" element ={<Dashboard/>}/>
-            <Route path = "/adminproducts" element={<Addproducts />}/>
-            <Route path ="/registeredusers" element={<Users/>}/>
-            <Route path="/userregistration" element={<Userregistration />}/>
-            <Route path="/contactformcheck" element={<ContactData />}/>
-            <Route path="/createposts" element={<Createposts />}/>
-            <Route path="/admincomments" element={<Comments />}/>
-            
-            
-            
-             </Route>
-            <Route path="/login" element={<Layout2 />} />
+            <Route path="/" element={<Layout2 />} />
+            <Route exact path="/register" element={<Registration />} />
+              <Route path="/admin" element={<Adminlogin />} />
+              <Route path="/" element={<Privateroutes />}>
+              <Route path="/admindashboard" element={<Dashboard />} />
+              <Route path="/adminproducts" element={<Addproducts />} />
+              <Route path="/registeredusers" element={<Users />} />
+              <Route path="/userregistration" element={<Userregistration />} />
+              <Route path="/contactformcheck" element={<ContactData />} />
+              <Route path="/createposts" element={<Createposts />} />
+              <Route path="/admincomments" element={<Comments />} />
+            </Route>
+            <Route path="/" element={<Privateloginroute/>}>
             <Route path="/home" element={<Home />} />
             <Route path="/product" element={<Product />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/singleproduct/:id" element={<Singleproduct />} />
-            <Route exact path="/contactdata" element={<FormData />}/>
-            <Route exact path="/posts" element={<Posts />}/>
-            <Route exact path="/singlepost/:_id" element={<Singleposts />}/>
-            <Route exact path="/register" element={<Registration />}/>
-            <Route path ="/admin" element={<Adminlogin />}/>
-            <Route path ="/admindashboard" element ={<Dashboard/>}/>
-            <Route path = "/adminproducts" element={<Addproducts />}/>
-            <Route path ="/registeredusers" element={<Users/>}/>
-            <Route path="/userregistration" element={<Userregistration />}/>
-            <Route path="/contactformcheck" element={<ContactData />}/>
-            <Route path="/createposts" element={<Createposts />}/>
-            <Route path="/admincomments" element={<Comments />}/>
+            <Route exact path="/contactdata" element={<FormData />} />
+            <Route exact path="/posts" element={<Posts />} />
+            <Route exact path="/singlepost/:_id" element={<Singleposts />} />
+            </Route>
           </Routes>
-        
-      </Router>
+        </Router>
       </ThemeProvider>
     </>
   );
