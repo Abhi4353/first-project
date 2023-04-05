@@ -138,6 +138,19 @@
   background-color: #605d5d;
   padding: 30px;
 }
+.bottom-nav-content ul {
+  list-style: none;
+}
+.bottom-nav-content a{
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+}
+.bottom-nav-content a:hover{
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+}
 /*  */
 
 /* About Us PAge Css */
@@ -206,13 +219,15 @@ i.fa.fa-cart-plus {
   text-decoration: none;
  color: #a84e4e;
  font-family: cursive;
+ font-size: 30px;
 }
 .customer-component a:hover{
   color: #a84e4e;
 }
 /* benefits component css */
 .benefits-component{
-  background-color: #e9f9f8 !important;
+  background-color:#d3e0e7;
+  color: #a84e4e;
 }
 /* product page css */
 .product-component {
@@ -292,4 +307,7 @@ font-weight: 700;
 }
 .comment-element label{
   font-weight: 700;
+}
+.post-form label{
+  color:#a84e4e !important;
 }

@@ -25,6 +25,7 @@ const Createposts = () => {
         })
         .then(function(response){
             if(response.status === 200){
+              
                 toast.success("Post Created")
                 console.log(response)
             }
@@ -43,16 +44,18 @@ const Createposts = () => {
               <div className='col'>
               <h1>Creating New Posts</h1>
                  <form className='form' enctype="multipart/form-data" method="post">
-                     <label className='form-label'>Title</label>
+                  <div className='form-group'>
+                     <label className='mt-2'>Title</label>
                     <input type='text' onChange={(e)=>setTitle(e.target.value)} className='form-control'></input>
-                    <label className='form-label'>Image Upload</label>
+                    <label className='mt-3'>Image Upload</label>
                     <input type='file' onChange={(e)=>setImage(e.target.files[0])} className='form-control'></input>
-                    <label className='form-label'>Id For post</label>
+                    <label className='mt-3'>Id For post</label>
                     <input type='text' onChange={(e)=>setId(e.target.value)} className='form-control'></input>
-                    <label className='form-label'>Body</label>
-                    <input type="text" onChange={(e)=>setBody(e.target.value)} className='form-control'></input>
+                    <label className='mt-3'>Body</label>
+                    <textarea type="text" onChange={(e)=>setBody(e.target.value)} className='form-control'></textarea>
                     <button type="button" className='btn btn-primary mt-3 w-100' onClick={submitpost}>Submit Data</button>
                     <ToastContainer position="top-center" />
+                    </div>
                  </form>
               </div>
            </div>

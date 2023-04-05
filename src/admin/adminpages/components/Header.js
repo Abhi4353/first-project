@@ -18,30 +18,30 @@ const Header = () => {
   },[])
 
  const logout = () =>{
-  toast.success("Successfully Logout")
-
-   navigate('../../admin')
+  localStorage.removeItem("token")
+  toast.success("Logout successfull")
+   navigate('/admin')
  }
 
   return (
-    <div className='container-fluid header-admin'>
+    <div className='container-fluid header-admin w-auto'>
     <nav className="navbar">
 <div className="container-fluid">
   <div className="navbar-header">
     <Link className="navbar-brand" to="/admindashboard">Admin Dashboard</Link>
   </div>
   <ul className='nav-item dropdown navbar-border'>
-  <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  {/* <p className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> */}
        {admin.map((ele ,key)=>(
-        <div key={key}><p key={key}>Welcome-: {ele.Email}</p></div>
+        <div key={key}>Welcome-:{ele.Email}</div>
         ))}
-      </Link> 
-      <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+      {/* </p>  */}
+      {/* <div className="dropdown-menu" aria-labelledby="navbarDropdown">
         <Link className="dropdown-item" to="#">Profile</Link>
         <Link className="dropdown-item" to="#">Update Profile</Link>
         <div className="dropdown-divider"></div>
-        <Link className="dropdown-item"  onClick={()=>logout()}>Logout</Link>
-      </div>  
+        <p className="dropdown-item"  style={{cursor:"pointer"}} onClick={logout}>Logout</p>
+      </div>   */}
   </ul>
   <ToastContainer position='top-center'/>
 </div>

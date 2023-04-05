@@ -12,23 +12,26 @@
  
 }
 .navbar-border{
-    border: 5px solid #a84e4e;
-    margin-left: 900px;
+ margin-left: auto;
+display: flex; 
+}
+.navbar-border p{
+    display: -webkit-inline-box;
 }
 .navbar-dashboard ul li a{
     text-decoration: none;
     color: #a84e4e;
     font-weight: 700;
-    font-size: 20px;
+    font-size: 18px;
     /* padding:20px; */
    
 }
 .navbar-dashboard ul li{
     list-style: none;
-    margin-top: 80px;
+    margin-top: 30px;
 }
 .navbar-dashboard ul{
-    /* margin: 0px; */
+    margin: 0px;
   
 }
 .admin-footer {

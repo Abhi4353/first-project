@@ -3,7 +3,7 @@ import "../../Admin.css"
 import { Link } from 'react-router-dom'
 const Sidebar = () => {
   return (
-    <div className='container-fluid sidebar-dashboard w-25 h-100'>
+    <div className='container-fluid sidebar-dashboard w-auto h-auto'>
        <nav className='navbar navbar-dashboard'>
           <ul className='nav-item'>
              <li>
@@ -13,16 +13,34 @@ const Sidebar = () => {
                <Link to="/userregistration">Users Registration</Link>
              </li>
              <li>
-               <Link to="/contactformcheck">Contact Form Data</Link>
+               <Link to="/contactformcheck">Manage Contact Data</Link>
              </li>
              <li>
                <Link to="/createposts">Create Posts</Link>
              </li>
              <li>
-               <Link to="#">Comments</Link>
+               <Link to="/admincomments">Comments</Link>
              </li>
              <li>
-               <Link to="#">Products</Link>
+               <Link to="/adminproducts">Products</Link>
+             </li>
+             <li>
+               <Link to="/adminproducts">Products</Link>
+             </li>
+             <li>
+               <Link to="/adminproducts">Products</Link>
+             </li>
+             <li>
+               <Link to="/adminproducts">Products</Link>
+             </li>
+             <li>
+               <Link to="/adminproducts">Products</Link>
+             </li>
+             <li>
+               <Link to="/adminproducts">Products</Link>
+             </li>
+             <li>
+               <Link to="/adminproducts">Products</Link>
              </li>
              
           </ul>

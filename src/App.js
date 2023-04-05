@@ -13,11 +13,13 @@ import Singleposts from "./pages/Singleposts";
 import Registration from "./components/Registration";
 import Adminlogin from "./admin/Adminlogin";
 import Dashboard from "./admin/adminpages/Dashboard";
-import Products from "./admin/pages/Products";
+import Addproducts from "./admin/pages/Addproducts";
 import Users from "./admin/pages/Users";
 import Userregistration from "./admin/pages/Userregistration";
 import ContactData from "./admin/pages/ContactData";
 import Createposts from "./admin/pages/Createposts";
+import Comments from "./admin/pages/Comments";
+import Privateroutes from "./Privateroutes";
 
 function App() {
   return (
@@ -26,7 +28,21 @@ function App() {
       <Router>
         
           <Routes>
-            <Route path="/" element={<Layout2 />} />
+          <Route path ="/admin" element={<Adminlogin />}/>
+
+          <Route path="/" element={<Privateroutes />} >
+            <Route path ="/admindashboard" element ={<Dashboard/>}/>
+            <Route path = "/adminproducts" element={<Addproducts />}/>
+            <Route path ="/registeredusers" element={<Users/>}/>
+            <Route path="/userregistration" element={<Userregistration />}/>
+            <Route path="/contactformcheck" element={<ContactData />}/>
+            <Route path="/createposts" element={<Createposts />}/>
+            <Route path="/admincomments" element={<Comments />}/>
+            
+            
+            
+             </Route>
+            <Route path="/login" element={<Layout2 />} />
             <Route path="/home" element={<Home />} />
             <Route path="/product" element={<Product />} />
             <Route path="/about" element={<About />} />
@@ -38,11 +54,12 @@ function App() {
             <Route exact path="/register" element={<Registration />}/>
             <Route path ="/admin" element={<Adminlogin />}/>
             <Route path ="/admindashboard" element ={<Dashboard/>}/>
-            <Route path = "/adminproducts" element={<Products />}/>
+            <Route path = "/adminproducts" element={<Addproducts />}/>
             <Route path ="/registeredusers" element={<Users/>}/>
             <Route path="/userregistration" element={<Userregistration />}/>
             <Route path="/contactformcheck" element={<ContactData />}/>
             <Route path="/createposts" element={<Createposts />}/>
+            <Route path="/admincomments" element={<Comments />}/>
           </Routes>
         
       </Router>

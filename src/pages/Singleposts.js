@@ -3,6 +3,7 @@ import Layout from "../layout/Layout";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { BACkEND_URL } from "../config/config";
+import { ToastContainer,toast } from "react-toastify";
 
 const Singleposts = () => {
   const [loader, setLoader] = useState(false);
@@ -22,44 +23,18 @@ const Singleposts = () => {
     console.log(res.data);   
   };
 
-  const getcommentdata = async () => { 
-    const ab = await axios.get("https://gorest.co.in/public/v2/comments",{
-    
-    headers: {
-        "Content-Type": "application/json;charset=UTF-8",
-        "Access-Control-Allow-Origin": "*",
-        Authorization:
-          "Bearer fbbab4a41bb1edcf1de34b3bf5d0b0a5f0ad46f3137f186f189871b50f6a2717",
-      }},
-    );
-    setMyComment(ab.data);
-    //  console.log("askask", ab.data)
-  };
+  
   useEffect(() => {
     getApiData();
-    getcommentdata();
   }, [_id]);
-  const post = {
-    id: "",
-    post_id: "",
-    name: name,
-    email: email,
-    body: comment,
+  const addcomment = async () => {
+    const res = await axios.post(`${BACkEND_URL}/comments`, {
+      Name : name,
+      Email : email,
+      Comment : comment
+    })
+    toast.success("Thanks for your comment")
   };
-  // const addcomment = async () => {
-  //   const res = await axios.post("https://gorest.co.in/public/v2/posts/285/comments", post, {
-  //       headers: {
-  //         "Content-Type": "application/json;charset=UTF-8",
-  //         "Access-Control-Allow-Origin": "*",
-  //         Authorization:
-  //           "Bearer fbbab4a41bb1edcf1de34b3bf5d0b0a5f0ad46f3137f186f189871b50f6a2717",
-  //       },
-  //     })
-  //     .then((res) => res.json());
-  //     getcommentdata();
-  //     console.log(res.data);
-    
-  // };
   return (
     <Layout>
       {loader ? (
@@ -90,7 +65,7 @@ const Singleposts = () => {
               </div>
             </div>
           </div>
-          <div className="container w-50">
+          <div className="container w-50 mb-5">
             <div className="row">
               <form>
                 <div className="form-group post-form">
@@ -117,13 +92,14 @@ const Singleposts = () => {
                     className="form-control"
                     onChange={(e) => setComment(e.target.value)}
                   ></textarea>
-                  {/* <button
+                  <button
                     type="button"
                     className="btn btn-primary mt-3"
                     onClick={addcomment}
                   >
                     Submit
-                  </button> */}
+                  </button>
+                  <ToastContainer position="top-center" />
                 </div>
               </form>
             </div>

@@ -17,6 +17,7 @@ const checklogin = async() =>{
    })
    .then(function(response){
     if(response.data == true){
+      localStorage.setItem("token", 1)
         toast.success("Welcome to Admin Dashboard")
         navigate('/admindashboard')
     }
