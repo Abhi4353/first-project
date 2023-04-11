@@ -21,6 +21,9 @@ import Createposts from "./admin/pages/Createposts";
 import Comments from "./admin/pages/Comments";
 import Privateroutes from "./Privateroutes";
 import Privateloginroute from "./Privateloginroute";
+import Manageusers from "./admin/pages/Manageusers";
+import Manageproducts from "./admin/pages/Manageproducts";
+import Manageposts from "./admin/pages/Manageposts";
 
 function App() {
   return (
@@ -39,13 +42,16 @@ function App() {
               <Route path="/contactformcheck" element={<ContactData />} />
               <Route path="/createposts" element={<Createposts />} />
               <Route path="/admincomments" element={<Comments />} />
+              <Route path="/manageusers" element={<Manageusers />}/>
+              <Route path="/manageproducts" element={<Manageproducts />}/>
+              <Route path="/manageposts" element={<Manageposts/>}/>
             </Route>
             <Route path="/" element={<Privateloginroute/>}>
             <Route path="/home" element={<Home />} />
             <Route path="/product" element={<Product />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/singleproduct/:id" element={<Singleproduct />} />
+            <Route path="/singleproduct/:_id" element={<Singleproduct />} />
             <Route exact path="/contactdata" element={<FormData />} />
             <Route exact path="/posts" element={<Posts />} />
             <Route exact path="/singlepost/:_id" element={<Singleposts />} />

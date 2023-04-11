@@ -1,15 +1,24 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ToastContainer,toast } from 'react-toastify'
 import { Link, useNavigate } from 'react-router-dom'
 import { BACkEND_URL } from '../config/config'
 import axios from 'axios'
 
 
+
 const Adminlogin = () => {
 const[email,setEmail] =useState("");
 const[password,setPassword] =useState("");
 const navigate = useNavigate();
+const token = localStorage.getItem("token")
+useEffect(()=>{
+    console.log(token)
+     if(token !== null){
+      navigate("/admindashboard")
+     }
 
+ console.log("yess")
+},[])
 const checklogin = async() =>{
    const res = await axios.post(`${BACkEND_URL}/admin`, {
     Email : email,

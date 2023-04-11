@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ThemeContext from '../components/ThemeContext';
 import { useContext } from 'react';
+import { BACkEND_URL } from '../config/config';
 
 const Product = () => {
     const [myData, setMyData] = useState([]);
@@ -19,7 +20,7 @@ const Product = () => {
   
     const getApiData = async () => {
       setLoader(true);
-      const res = await axios.get("https://fakestoreapi.com/products");
+      const res = await axios.get(`${BACkEND_URL}/getproducts`);
       setMyData(res.data);
       
       setLoader(false);
@@ -142,22 +143,22 @@ const Product = () => {
           <div className="container-fluid product-component">
             <div className="row">
               
-              {myData.slice(0,price).map((ele, key) => (
+              {myData.map((ele, key) => (
                 <div className="col-4 pro_col">
                   <div key={key} className="products">
-                    <Link className="rem" to={`/singleproduct/${ele?.id}`}>
+                    <Link className="rem" to={`/singleproduct/${ele?._id}`}>
                       <div className="pro-img">
                         {/* {" "} */}
-                        <img src={ele?.image} className="w-25"></img>
+                        <img src={`${BACkEND_URL}/uploads/${ele?.image}`} className="w-25"></img>
                       </div>
                     </Link>
 
-                    <h3>{ele?.title.slice(0,20)}</h3>
+                    <h3>{ele?.Title}</h3>
 
-                    <p>Price:-${ele?.price}</p>
-                    <p>
-                      <b>Category : {ele?.category}</b>
-                    </p>
+                    <p>Price:-${ele?.Price}</p>
+                    {/* <p>
+                      <b>Category : {ele?.Category}</b>
+                    </p> */}
                     <button type="button" className="btn btn-primary mb-4" onClick={()=>addtoCart()}>
                       Add to Cart
                     </button>
@@ -165,9 +166,9 @@ const Product = () => {
                   </div>
                 </div>
               ))}
-              <div className='container text-center'>
+              {/* <div className='container text-center'>
                 {showbutton ? <button type="button" className='btn btn-primary' onClick={updateprice}>Access More</button> : ""}
-              </div>
+              </div> */}
             </div>
           </div>
           </div>

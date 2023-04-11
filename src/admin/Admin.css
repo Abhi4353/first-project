@@ -1,41 +1,74 @@
 .header-admin{
-    background-color: #ced3da;
+    background-color: #15283c;
+    color: white;
+    margin: 0 0 0 0;
 }
-.header-admin a{
+.navbar-header a{
     font-weight: 700;
+    color:white;
+
+}
+.navbar-id-part {
+    background-color: #ff5722 !important;
+    right: 0% !important;
 }
 .sidebar-dashboard{
-    /* width: 20% !important; */
+    width: 20% !important;
     height: 100%;
     float: left;
-    background: #b0b8ef !important;
+    background: #15283c !important;
  
+}
+.user-sidebar-content{
+    background-color: #214162;
+    height: 100px;
+    color: white;
+}
+.user-sidebar-content h1{
+    margin-top: 20px;
+    text-align: inherit;
+}
+.user-sidebar-content img{
+    width: 70px;
+    height: 70px;
+    border-radius: 40px;
+    margin: 13px;
 }
 .navbar-border{
  margin-left: auto;
-display: flex; 
+/* display: flex;  */
 }
-.navbar-border p{
+/* .navbar-border p{
     display: -webkit-inline-box;
-}
+} */
 .navbar-dashboard ul li a{
     text-decoration: none;
-    color: #a84e4e;
+    color: white;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 14px;
     /* padding:20px; */
    
 }
 .navbar-dashboard ul li{
     list-style: none;
     margin-top: 30px;
+    
 }
 .navbar-dashboard ul{
     margin: 0px;
+   
   
+}
+.navbar-dashboard{
+    text-align: center;
 }
 .admin-footer {
     bottom: 0px;
+    overflow: hidden;
+}
+.admin-footer p {
+    text-align: right;
+    margin-right:20px;
 }
 
 
@@ -45,4 +78,17 @@ display: flex;
 }
 .users-table tr, td{
  border: 1px solid #a84e4e !important;
+}
+
+.dropdown-menu.show {
+    left: unset !important;
+    right: 0px !important;
+}
+.login-form-admin {
+    /* padding: 20px; */
+    width: 50% !important;
+    margin: 60px;
+}
+.login-form-admin h1{
+    font-weight: 700;
 }

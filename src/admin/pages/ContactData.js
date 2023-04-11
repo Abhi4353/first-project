@@ -29,6 +29,7 @@ const ContactData = () => {
                         <th>Email Id</th>
                         <th>Gender</th>
                         <th>Message</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>

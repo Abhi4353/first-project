@@ -50,13 +50,13 @@ const Userregistration = () => {
       // 
   return (
     <Layout1>
-    <div className="container-fluid w-100">
+    <div className="container-fluid">
       <div className="row">
         <div className="col">
-          <div className="container-fluid bg-light login-form-body">
+          <div className="container-fluid bg-light login-form-admin">
             <form>
               <div className="form-group">
-                <h1 className="text-center">Registration Form in Admin Dashboard</h1>
+                <h1 className="text-center p-3">Register New User</h1>
                 <label>First Name</label>
                 <input
                   type="text"

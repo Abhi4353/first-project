@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Layout1 from '../adminpages/layout/Layout1'
 import { ToastContainer,toast } from 'react-toastify';
+import { BACkEND_URL } from '../../config/config';
+import axios from 'axios';
 
 const Addproducts = () => {
   const[title,setTitle] = useState("");
@@ -8,10 +10,41 @@ const Addproducts = () => {
   const[body,setBody] = useState("");
   const[image,setImage] = useState(null);
   const[category,setCategory]= useState("");
+   
+  const createProductData = async() => {
+    const res = await axios.post(`${BACkEND_URL}/products`, {
+      Title : title,
+      image : image,
+      Description : body,
+      Price : price,
+      Category : category,
+     }, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+     })
+     .then(function(response){
+      if(response.status === 200){
+        toast.success("Product Successfully Created")
+        console.log("Success")
+      }
+      else {
+        toast.error("Try Again Some Error")
+        console.log("decline")
+
+      }
+     })
+  }
+
   return (
     <>
       <Layout1>
-      <div className='container'>
+        <div className='container-fluid'>
+          <div className='row'>
+            <div className='col'>
+
+         
+      <div className='container-fluid login-form-admin bg-light'>
            <div className='row'>
               <div className='col'>
               <h1>Adding New Product</h1>
@@ -33,12 +66,15 @@ const Addproducts = () => {
                     </datalist>
                     <label className='mt-3'>Description</label>
                     <textarea type="text" onChange={(e)=>setBody(e.target.value)} className='form-control'></textarea>
-                    <button type="button" className='btn btn-primary mt-3 w-100' onClick="">Submit Data</button>
+                    <button type="button" className='btn btn-primary mt-3 mb-3 w-100' onClick={createProductData}>Submit Data</button>
                     <ToastContainer position="top-center" />
                     </div>
                  </form>
               </div>
            </div>
+        </div>
+        </div>
+          </div>
         </div>
       </Layout1>
     </>

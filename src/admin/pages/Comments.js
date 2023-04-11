@@ -13,7 +13,7 @@ const Comments = () => {
     }
     useEffect(()=>{
         getcomments();
-    })
+    },[])
   return (
     <>
       <Layout1>

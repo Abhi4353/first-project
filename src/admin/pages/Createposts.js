@@ -39,7 +39,12 @@ const Createposts = () => {
   return (
     <>
       <Layout1>
-        <div className='container'>
+        <div className='container-fluid'>
+          <div className='row'>
+            <div className='col'>
+
+           
+        <div className='container-fluid login-form-admin bg-light'>
            <div className='row'>
               <div className='col'>
               <h1>Creating New Posts</h1>
@@ -53,12 +58,15 @@ const Createposts = () => {
                     <input type='text' onChange={(e)=>setId(e.target.value)} className='form-control'></input>
                     <label className='mt-3'>Body</label>
                     <textarea type="text" onChange={(e)=>setBody(e.target.value)} className='form-control'></textarea>
-                    <button type="button" className='btn btn-primary mt-3 w-100' onClick={submitpost}>Submit Data</button>
+                    <button type="button" className='btn btn-primary mt-3 mb-3 w-100' onClick={submitpost}>Submit Data</button>
                     <ToastContainer position="top-center" />
                     </div>
                  </form>
               </div>
            </div>
+        </div>
+        </div>
+          </div>
         </div>
       </Layout1>
     </>
