@@ -53,10 +53,10 @@ const Sidebar = () => {
                <Link to="/manageproducts">Manage Products</Link>
              </li>
              <li>
-               <Link to="/adminproducts">Products</Link>
+               <Link to="#">Empty</Link>
              </li>
              <li>
-               <Link to="/adminproducts">Products</Link>
+               <Link to="#">Empty</Link>
              </li>
              
              <ToastContainer position='top-center'/>

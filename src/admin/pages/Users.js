@@ -3,6 +3,7 @@ import { BACkEND_URL } from "../../config/config";
 import axios from "axios";
 import Layout1 from "../adminpages/layout/Layout1";
 import "../Admin.css";
+import { Link } from "react-router-dom";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -46,6 +47,7 @@ const Users = () => {
                     <th>LastName</th>
                     <th>Email Id</th>
                     <th>Password</th>
+                    <th>Image</th>
                     <th>Status</th>
                   </tr>
                 </thead>
@@ -58,6 +60,8 @@ const Users = () => {
                           <td>{ele.LastName}</td>
                           <td>{ele.Email}</td>
                           <td>{ele.Password}</td>
+                          <td><Link to={`${BACkEND_URL}/uploads/${ele.image}`} target="_blank"><img src={`${BACkEND_URL}/uploads/${ele.image}`}></img></Link></td>
+
                           <td>
                             <div class="custom-control custom-switch">
                               <input

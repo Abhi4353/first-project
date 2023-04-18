@@ -8,7 +8,13 @@ import Popup from 'reactjs-popup'
 
 const Header = () => {
   const[admin,setAdmin]=useState([]);
-  // const[users,setUsers]=useState();
+  const[requests,setRequests]=useState(false);
+  const[request,setRequest]=useState(0)
+
+
+
+
+  // logic to admin login details and logout details
   const navigate = useNavigate();
   const getadmindata = async() =>{
     const res = await axios.get(`${BACkEND_URL}/admin`)
@@ -24,6 +30,27 @@ const Header = () => {
   toast.success("Logout successfull")
    navigate('/admin')
  }
+  
+// logic for know how much requests in the request panel
+ const getrequestsdata = async() => {
+   const count = await axios.get(`${BACkEND_URL}/users`)
+   setRequest((count.data.filter((ele) => ele.status === false)).length);
+ }
+
+
+//  logic for mouse over and out on new user requests
+ const handleentermouse = () => {
+  setRequests(true);
+ }
+
+ const handleleavemouse = () => {
+ setRequests(false);
+ }
+
+useEffect(()=> {
+  getrequestsdata();
+})
+
 
 
   return (
@@ -32,8 +59,11 @@ const Header = () => {
   <div className="col-6 navbar-header mt-1">
     <Link className="navbar-brand" to="/admindashboard">Dashboard</Link>
   </div>
-  <div className='col-4 mt-1 navbar-header'>
-  <Popup trigger={<i className="fa fa-user-plus"></i>} position="bottom center">
+  <div className='col-4 mt-1 navbar-header2'>
+  <Link to="/manageusers"><i className="fa fa-user-plus" onMouseEnter={handleentermouse} onMouseLeave={handleleavemouse}></i></Link>
+  {requests ? <><div className='container pop-up-header pop-up-icon'><h3>New Requests</h3> </div></> : ""}
+  <p>{request}</p>
+  {/* <Popup trigger={<i className="fa fa-user-plus"></i>} position="bottom center">
     <div className='conatiner pop-up-header bg-light'>
       <div className='row'>
         <div className='col'>
@@ -41,7 +71,7 @@ const Header = () => {
 
         </div>
       </div>
-    </div></Popup>
+    </div></Popup> */}
 
   </div>
   <div className='col-2 d-flex p-0'>

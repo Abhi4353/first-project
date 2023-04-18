@@ -3,10 +3,20 @@
     color: white;
     margin: 0 0 0 0;
 }
+.navbar-header2{
+    display: flex;
+    justify-content: end;
+}
 .navbar-header a{
     font-weight: 700;
     color:white;
-
+}
+.navbar-header2 a{
+    color:white;
+}
+.navbar-header2 p{
+    display: contents;
+    color: red;
 }
 .navbar-id-part {
     background-color: #ff5722 !important;
@@ -76,6 +86,11 @@
     border:5px solid #a84e4e;
     margin: 20px;
 }
+
+.users-table img{
+    width: 100px;
+    height : 80px;
+}
 .users-table tr, td{
  border: 1px solid #a84e4e !important;
 }
@@ -92,3 +107,35 @@
 .login-form-admin h1{
     font-weight: 700;
 }
+
+.pop-up-icon {
+    position: absolute;
+    color: coral;
+    /* margin-left: -35px !important; */
+    margin-top: 34px;
+    background: aqua;
+    width: auto !important;
+}
+
+
+/* previous and next button css */
+.row.button-prev-next {
+    display: flex;
+    justify-content: center;
+}
+.row.button-prev-next button{
+    margin: auto;
+}
+
+/* action buttons css */
+.action-button {
+    display: flex;
+    gap: 5px;
+}
+
+
+/* css for update posts image */
+/* .update-image img{
+    width: 200px !important;
+    height: 150px !important;
+} */

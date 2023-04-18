@@ -24,6 +24,7 @@ import Privateloginroute from "./Privateloginroute";
 import Manageusers from "./admin/pages/Manageusers";
 import Manageproducts from "./admin/pages/Manageproducts";
 import Manageposts from "./admin/pages/Manageposts";
+import Updatepost from "./admin/pages/Updatepost";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
               <Route path="/manageusers" element={<Manageusers />}/>
               <Route path="/manageproducts" element={<Manageproducts />}/>
               <Route path="/manageposts" element={<Manageposts/>}/>
+              <Route path="/updatepost/:_id" element={<Updatepost />}/>
             </Route>
             <Route path="/" element={<Privateloginroute/>}>
             <Route path="/home" element={<Home />} />

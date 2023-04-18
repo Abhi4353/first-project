@@ -13,12 +13,13 @@ const Registration = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [cPassword, setCPassword] = useState("");
-  const [check, setCheck] = useState(false);
+  const [image, setImage] = useState(null);
   const navigate = useNavigate();
-  const checklogin = async () => {
+  const checklogin = async() => {
     if (
       firstName == "" &&
       lastName == "" &&
+      image == null &&
       email == "" &&
       password == "" &&
       cPassword == ""
@@ -26,15 +27,21 @@ const Registration = () => {
       toast.error("Please fill out all the fields");
     } else {
       if (password == cPassword) {
-        const data = await axios
-          .post(`${BACkEND_URL}/signup`, {
+        const res = await axios.post(`${BACkEND_URL}/signup`, {
             FirstName: firstName,
             LastName: lastName,
+            image: image,
             Email: email,
             Password: password,
             ConfirmPassword: cPassword,
-          })
+          }, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+           })
+         
           .then(function (response) {
+            console.log(response.status)
             if (response.status === 200) {
               toast.success("Registered Successfully");
               console.log("Data Inserted");
@@ -46,7 +53,7 @@ const Registration = () => {
               toast.error("Email Already Exist");
             }
           });
-      
+          console.log(res)
       } else {
         toast.warning("Password And Confirm password not same");
       }
@@ -61,7 +68,7 @@ const Registration = () => {
       <div className="row">
         <div className="col">
           <div className="container-fluid bg-light login-form-body">
-            <form>
+            <form enctype="multipart/form-data">
               <div className="form-group">
                 <h1 className="text-center">Registration Form</h1>
                 <label>First Name</label>
@@ -75,6 +82,12 @@ const Registration = () => {
                   type="text"
                   className="form-control"
                   onChange={(e) => setLastName(e.target.value)}
+                ></input>
+                <label>Pic</label>
+                <input
+                  type="file"
+                  className="form-control"
+                  onChange={(e) => setImage(e.target.files[0])}
                 ></input>
                 <label>Email</label>
                 <input
@@ -101,7 +114,9 @@ const Registration = () => {
                 >
                   Register
                 </button>
-                 <p>Already Have Account<Link to="/">Login</Link></p> 
+                <p>
+                  Already Have Account<Link to="/">Login</Link>
+                </p>
                 {/* <input type="submit" value="Forget password" className='mt-3'></input> */}
                 {/* <p>{check==true ?"Please enter correct Email Id or Password" : ""}</p> */}
                 <ToastContainer position="top-center" />
