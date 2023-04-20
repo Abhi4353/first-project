@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Children } from 'react'
 import Layout from '../layout/Layout';
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import ThemeContext from '../components/ThemeContext';
 import { useContext } from 'react';
 import { BACkEND_URL } from '../config/config';
+import { useParams } from 'react-router-dom';
 
 const Product = () => {
     const [myData, setMyData] = useState([]);
@@ -17,6 +18,8 @@ const Product = () => {
      const [filter2,setFilter2]=useState();
      const[cartItems, setCartItems]=useState([]);
      const[showbutton,setshowbutton]=useState(true);
+     const { theme, toggleTheme } = useContext(ThemeContext);
+     const { Category } = useParams();
   
     const getApiData = async () => {
       setLoader(true);
@@ -25,44 +28,9 @@ const Product = () => {
       
       setLoader(false);
     };
-    const getApiCategory = async () => {
-      const cat = await axios.get("https://fakestoreapi.com/products/categories");
-      setCategory(cat.data);
-    };
-    useEffect(() => {
-      getApiData();
-      getApiCategory();
-    }, []);
-  
-
-    // Filter Products by Category
-    const getDataCategorywise = async () => {
-      setLoader(true);
-      if(filter=='all'){
-        const res =await axios.get('https://fakestoreapi.com/products')
-        setMyData(res.data)
-        console.log("Data",res.data)
-      }
-      else{
-        setFilter(filter);
-      }
-      const res = await axios.get(
-        `https://fakestoreapi.com/products/category/${filter}`
-      );
-      setMyData(res.data);
-      setLoader(false);
-    };
-  
-    useEffect(() => {
-      if (filter) {
-        getDataCategorywise();
-      }
-    }, [filter]);
-  
-
 
     //  Logic for Products to be added in cart
-     const addtoCart = ()=>{
+    const addtoCart = ()=>{
       setCount(count +1)
      }
      const deletefromCart =()=>{
@@ -73,33 +41,52 @@ const Product = () => {
         setCount(count -1)
       }
     }
-      useEffect(()=>{
-       addtoCart();
-       deletefromCart();
-      },[])
-       
-      const checkprice = async() => {
-        setLoader(true)
-       const abc = await axios.get('https://fakestoreapi.com/products')
-       const filterData = abc.data.filter((ele)=>ele.price < filter2)
-       setMyData(filterData)
-       setLoader(false)
-      //  console.log("price",filterData)
-      }
-    useEffect(()=>{
-      if(filter2){
-      checkprice();
-      }},[filter2]);
-      const { theme, toggleTheme } = useContext(ThemeContext);
-    
-      const updateprice = () =>{
-        if(price>18){
-          setshowbutton(false);
+
+
+      const getCategoryData = async(value) => {
+        setLoader(true);
+        if(value === 'all'){
+          getApiData();
+          // const res = await axios.get(`${BACkEND_URL}/getproducts`);
+          // setMyData(res.data)
         }
         else{
-        setPrice(price+3)
+          const res = await axios.get(`${BACkEND_URL}/productbycategory?Category=${value}`)
+          console.log(res.data)
+          setMyData(res.data)
+          setLoader(false)
         }
       }
+         
+
+      const getdatabyprice = async(value) => {
+        setLoader(true)
+        const res =await axios.get(`${BACkEND_URL}/getproducts`)
+        if(value == '0-1000'){
+          setMyData(res.data.filter((ele)=> ele.Price <= 1000))
+          setLoader(false);
+        }
+        else if(value == '1000-10000'){
+          setMyData(res.data.filter((ele)=>ele.Price >= 1000 && ele.Price < 10000))
+          setLoader(false);
+        } 
+        else if(value == '10000-100000'){
+          setMyData(res.data.filter((ele)=>ele.Price >= 10000 && ele.Price < 100000))
+          setLoader(false);
+        } 
+        else if(value == '100000-1000000'){
+          setMyData(res.data.filter((ele)=>ele.Price >= 100000 && ele.Price <= 1000000))
+          setLoader(false);
+        }
+      }
+    
+
+      useEffect(()=>{
+       addtoCart();
+       getApiData();
+       deletefromCart();
+      },[])
+   
   return (
     <Layout>
     
@@ -110,11 +97,11 @@ const Product = () => {
         <div className={theme}>
           <div className="container-fluid text-center p-5 product-component2">
             <div className="row">
-              <div className="col-4">
+              <div className="col">
                 <h1><b>Products</b></h1>
               </div>
 
-              <div className="col-4">
+              {/* <div className="col-4">
                 <h3>Filter By Category</h3>
 
                 <select onChange={(e) => setFilter(e.target.value)}>
@@ -124,9 +111,9 @@ const Product = () => {
                     <option value={ele}>{ele}</option>
                   ))}
                 </select>
-              </div>
+              </div> */}
                 
-              <div className="col-4">
+              {/* <div className="col-4">
                <h3>Fiter By Price</h3>
                <select onChange={(e)=>setFilter2(e.target.value)}>
                 <option value={""}>Select Price...</option>
@@ -135,15 +122,49 @@ const Product = () => {
                 <option value="500">$0-$500</option>
                 <option value="1000">$0-$1000</option>
                </select>
-              </div>
+              </div> */}
             </div>
           </div>
           
 
-          <div className="container-fluid product-component">
+          <div className="container-fluid">
             <div className="row">
-              
-              {myData.map((ele, key) => (
+              <div className='col-2 product-sidebar'>
+                <div className='container-fluid pro-side-head'>
+                  <div className='row'>
+                    <div className='col'>
+                    <h5>Fiter By Category</h5>
+                    </div>
+                  </div>
+                  <div className='row'>
+                    <div className='col'> 
+                      <button type="button" className='btn' onClick={(e)=>getCategoryData(e.target.value)} value="all">All Products</button><br/>
+                      <button type='button' className='btn' onClick={(e)=>getCategoryData(e.target.value)} value="Man">Men</button><br/>
+                      <button type='button' className='btn' onClick={(e)=>getCategoryData(e.target.value)} value="Women">Women</button><br/>
+                      <button type='button' className='btn' onClick={(e)=>getCategoryData(e.target.value)} value="Electronics">Electronics</button><br/>
+                    </div>
+                  </div>
+                  <div className='row'> 
+                    <div className='col'>
+                        <h5>Filter By Price</h5>
+                    </div>
+                  </div>
+                  <div className='row'>
+                    <div className='col'>
+                       <button type='button' className='btn' onClick={(e)=>getdatabyprice(e.target.value)} value="0-1000">0-1000</button><br/>
+                       <button type='button' className='btn' onClick={(e)=>getdatabyprice(e.target.value)} value="1000-10000">1000-10000</button><br/>
+                       <button type='button' className='btn' onClick={(e)=>getdatabyprice(e.target.value)} value="10000-100000">10000-100000</button><br/>
+                       <button type='button' className='btn' onClick={(e)=>getdatabyprice(e.target.value)} value="100000-1000000">100000-1000000</button><br/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className='col-10'>
+                <div className='container-fluid product-component'>
+                  <div className='row'>
+
+                  
+              {myData?.map((ele, key) => (
                 <div className="col-4 pro_col">
                   <div key={key} className="products">
                     <Link className="rem" to={`/singleproduct/${ele?._id}`}>
@@ -169,6 +190,9 @@ const Product = () => {
               {/* <div className='container text-center'>
                 {showbutton ? <button type="button" className='btn btn-primary' onClick={updateprice}>Access More</button> : ""}
               </div> */}
+              </div>
+                </div>
+              </div>
             </div>
           </div>
           </div>

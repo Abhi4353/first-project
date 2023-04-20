@@ -42,6 +42,7 @@ const Dashboard = () => {
   const [button, setButton] = useState(true);
   const [month, setMonth] = useState([]);
   const arr = [];
+  const yeararr = [];
 
   const options = {
     responsive: true,
@@ -61,10 +62,10 @@ const Dashboard = () => {
     const res = await axios.get(`${BACkEND_URL}/users`);
     setCount(res.data.filter((ele) => ele.status === true).length);
     setRequests(res.data.filter((ele) => ele.status === false).length);
-    setDate(res.data.filter((ele) => ele.status === true).map((ele)=>new Date(ele.createdAt).getMonth()));
-    // setMonth(res.data.map((ele) => new Date(ele.createdAt).getMonth()));
+    setDate(res.data.filter((ele) => ele.status === true).map((ele)=>new Date(ele.createdAt).getMonth()+1));
+    setYear(res.data.map((ele) => new Date(ele.createdAt).getUTCFullYear()+1));
   };
-  console.log(date)
+  console.log(year)
     let datamy = date;
     let one = 0,
       two = 0,
@@ -134,29 +135,90 @@ const Dashboard = () => {
       labels: ["January","february","march","april","may","june","july","august","september","october","november","december"],
       datasets: [
         {
-          label: "users registration",
+          label: "users registration year 2022-2023",
           data: arr,
           backgroundColor: "yellow",
           borderColor: "red",
         },
       ],
     };
+   
+  
+    let newyear = year;
+    let sixteen = 0,
+      seventeen = 0,
+      eighteen = 0,
+      nineteen = 0,
+      twenty = 0,
+      tone = 0,
+      ttwo = 0,
+      tthree = 0,
+      tfour = 0,
+      tfive = 0,
+      tsix = 0;
+    for (let i = 0; i <= newyear.length; i++) {
+      if (2016 === newyear[i]) {
+        sixteen = sixteen + 1;
+      }
+      if (2017 === newyear[i]) {
+        seventeen = seventeen + 1;
+      }
+      if (2018 === newyear[i]) {
+        eighteen = eighteen + 1;
+      }
+      if (2019 === newyear[i]) {
+        nineteen = nineteen + 1;
+      }
+      if (2020 === newyear[i]) {
+        twenty = twenty + 1;
+      }
+      if (2021 === newyear[i]) {
+        tone = tone + 1;
+      }
+      if (2022 === newyear[i]) {
+        ttwo = ttwo + 1;
+      }
+      if (2023 === newyear[i]) {
+        tthree = tthree + 1;
+      }
+      if (2024 === newyear[i]) {
+        tfour = tfour + 1;
+      }
+      if (2025 === newyear[i]) {
+        tfive = tfive + 1;
+      }
+      if (2026 === newyear[i]) {
+        tsix = tsix + 1;
+      }
+    }
+    yeararr.push(
+      sixteen,
+      seventeen,
+      eighteen,
+      nineteen,
+      twenty,
+      tone,
+      ttwo,
+      tthree,
+      tfour,
+      tfive,
+      tsix
+    );
+   console.log("Years data",yeararr)
     let data3 = {
-      labels: ["January","february","march","april","may","june","july","august","september","october","november","december"],
+      labels: ["2016","2017","2018","2019","2019","2020","2021","2022","2023","2024","2025","2026"],
       datasets: [
         {
           label: "users registration",
-          data: arr,
+          data: yeararr,
           backgroundColor: "yellow",
           borderColor: "red",
         },
       ],
     };
-  
 
 
-
-
+    
 
   const getpostsdata = async () => {
     const res = await axios.get(`${BACkEND_URL}/posts`);
@@ -189,20 +251,7 @@ const Dashboard = () => {
   useEffect(() => {
 
   }, []);
-  // [
-  //   { name: "January", id: 1 },
-  //   { name: "february", id: 2 },
-  //   { name: "march", id: 3 },
-  //   { name: "april", id: 4 },
-  //   { name: "may", id: 5 },
-  //   { name: "june", id: 6 },
-  //   { name: "july", id: 7 },
-  //   { name: "august", id: 8 },
-  //   { name: "september", id: 9 },
-  //   { name: "october", id: 10 },
-  //   { name: "november", id: 11 },
-  //   { name: "december", id: 12 },
-  // ]
+
  
   const setbuttondata = () => {
     setButton(false);

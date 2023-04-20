@@ -218,5 +218,6 @@
 .dashboard-user-chart2 button {
     display: flex;
     justify-content: center;
-    margin-left: 300px !important;
+    margin-left: 341px !important;
+    margin-top: 20px !important;
 }

@@ -8,16 +8,30 @@ import { BACkEND_URL } from "../config/config";
 const Posts = () => {
   const [myData, setMyData] = useState([]);
   const [loader, setLoader] = useState(false);
+  const[button,setButton]=useState(true)
+  const [start,setStart]=useState(0);
+  const[total,setTotal]=useState(6);
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   const getApiData = async () => {
     setLoader(true);
     const res = await axios.get(`${BACkEND_URL}/posts`);
-    //  console.log(res)
+    setButton((res.data).length)
     setMyData(res.data);
     setLoader(false);
     console.log(res.data);
   };
+
+  const shownextvalue = () => {
+    setStart(start+5)
+    setTotal(total+5)
+  }
+
+  const showprevvalue = () => {
+    setStart(start - 5)
+    setTotal(total-5)
+  }
+
   useEffect(() => {
     getApiData();
   }, []);
@@ -39,7 +53,7 @@ const Posts = () => {
             </div>
             <div className="container">
               <div className="row mt-5">
-                {myData.map((ele, key) => (
+                {myData.slice(start,total).map((ele, key) => (
                   <div className="col-4 posts-component">
                     <div key={key} className="container posts-col">
                       <h4>{ele?.Title}</h4>
@@ -63,6 +77,10 @@ const Posts = () => {
                 ))}
               </div>
             </div>
+            <div className="row button-prev-next">
+           {start > 0 ?<button type="button" className="btn btn-secondary w-25" onClick={showprevvalue}>Previous</button> : ""} 
+           {total <= button ?<button type="button" className="btn btn-primary w-25" onClick={shownextvalue}>Next</button> : ""}
+           </div>
           </div>
         </>
       )}

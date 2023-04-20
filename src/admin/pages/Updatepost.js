@@ -27,15 +27,21 @@ const Updatepost = () => {
 
 
     const updatepostdata = async(id) => {
-     const res = await axios.post(`${BACkEND_URL}/updateposts?id=${_id}`, {
-        Title : title,
-        Id : Id,
-        Body : body
-     })
-     toast.success("Post Updated Successfully");
-     console.log("updated")
-    }
-    
+      if(title == "" && Id == "" && body == ""){
+        toast.error("Please fill out all the fields");
+      }
+      else{
+        const res = await axios.post(`${BACkEND_URL}/updateposts?id=${_id}`, {
+          Title : title,
+          Id : Id,
+          Body : body
+       })
+       toast.success("Post Updated Successfully");
+       console.log("updated")
+      }
+      
+      }
+  
     // useEffect(()=>{
     //     updatepostdata();
     // },[])

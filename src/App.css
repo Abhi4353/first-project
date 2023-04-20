@@ -248,7 +248,17 @@ i.fa.fa-cart-plus {
   height: 100%;
 }
 
-
+.product-sidebar {
+  background: aliceblue;
+  width: 250px !important;
+  height: auto !important;
+}
+.pro-side-head h5 {
+  color: #a84e4e;
+  margin-top: 30px;
+  font-size: 21px;
+  font-weight: 700;
+}
 
 .product-component2{
   background-color: #43c9be;
@@ -277,6 +287,7 @@ i.fa.fa-cart-plus {
 .single-product-button {
   margin-left: 185px;
 }
+
 
 .posts-component{
   width: 29% !important;
@@ -326,4 +337,12 @@ font-weight: 700;
 }
 .post-form label{
   color:#a84e4e !important;
+}
+.button-prev-next{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+.button-prev-next button{
+  margin: auto;
 }
