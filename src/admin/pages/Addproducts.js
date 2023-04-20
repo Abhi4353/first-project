@@ -52,6 +52,8 @@ const Addproducts = () => {
                   <div className='form-group'>
                      <label className='mt-2'>Title</label>
                     <input type='text' onChange={(e)=>setTitle(e.target.value)} className='form-control'></input>
+                    <label className='mt-2'>Title</label>
+                    <input type='text' onChange={(e)=>setTitle(e.target.value)} className='form-control'></input>
                     <label className='mt-3'>Image Upload</label>
                     <input type='file' onChange={(e)=>setImage(e.target.files[0])} className='form-control'></input>
                     <label className='mt-3'>Price For product</label>
