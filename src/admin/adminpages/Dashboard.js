@@ -40,22 +40,18 @@ const Dashboard = () => {
   const [date, setDate] = useState([]);
   const [year, setYear] = useState([]);
   const [button, setButton] = useState(true);
+  const [month, setMonth] = useState([]);
+  const arr = [];
 
   const options = {
-    indexAxis: "y",
-    elements: {
-      bar: {
-        borderWidth: 2,
-      },
-    },
     responsive: true,
     plugins: {
       legend: {
-        position: "right",
+        position: "top",
       },
       title: {
         display: true,
-        text: "Users registration Month",
+        text: "Chart.js Bar Chart",
       },
     },
   };
@@ -65,7 +61,102 @@ const Dashboard = () => {
     const res = await axios.get(`${BACkEND_URL}/users`);
     setCount(res.data.filter((ele) => ele.status === true).length);
     setRequests(res.data.filter((ele) => ele.status === false).length);
+    setDate(res.data.filter((ele) => ele.status === true).map((ele)=>new Date(ele.createdAt).getMonth()));
+    // setMonth(res.data.map((ele) => new Date(ele.createdAt).getMonth()));
   };
+  console.log(date)
+    let datamy = date;
+    let one = 0,
+      two = 0,
+      three = 0,
+      four = 0,
+      five = 0,
+      six = 0,
+      seven = 0,
+      eight = 0,
+      nine = 0,
+      ten = 0,
+      eleven = 0,
+      twelve = 0;
+    for (let i = 0; i <= datamy.length; i++) {
+      if (1 === datamy[i]) {
+        one = one + 1;
+      }
+      if (2 === datamy[i]) {
+        two = two + 1;
+      }
+      if (3 === datamy[i]) {
+        three = three + 1;
+      }
+      if (4 === datamy[i]) {
+        four = four + 1;
+      }
+      if (5 === datamy[i]) {
+        five = five + 1;
+      }
+      if (6 === datamy[i]) {
+        six = six + 1;
+      }
+      if (7 === datamy[i]) {
+        seven = seven + 1;
+      }
+      if (8 === datamy[i]) {
+        eight = eight + 1;
+      }
+      if (9 === datamy[i]) {
+        nine = nine + 1;
+      }
+      if (10 === datamy[i]) {
+        ten = ten + 1;
+      }
+      if (11 === datamy[i]) {
+        eleven = eleven + 1;
+      }
+      if (12 === datamy[i]) {
+        twelve = twelve + 1;
+      }
+    }
+    arr.push(
+      one,
+      two,
+      three,
+      four,
+      five,
+      six,
+      seven,
+      eight,
+      nine,
+      ten,
+      eleven,
+      twelve
+    );
+    let data2 = {
+      labels: ["January","february","march","april","may","june","july","august","september","october","november","december"],
+      datasets: [
+        {
+          label: "users registration",
+          data: arr,
+          backgroundColor: "yellow",
+          borderColor: "red",
+        },
+      ],
+    };
+    let data3 = {
+      labels: ["January","february","march","april","may","june","july","august","september","october","november","december"],
+      datasets: [
+        {
+          label: "users registration",
+          data: arr,
+          backgroundColor: "yellow",
+          borderColor: "red",
+        },
+      ],
+    };
+  
+
+
+
+
 
   const getpostsdata = async () => {
     const res = await axios.get(`${BACkEND_URL}/posts`);
@@ -82,7 +173,6 @@ const Dashboard = () => {
         setPrice(response.data.map((ele) => ele.Price));
       });
   };
-  // console.log(users);
 
   let data = {
     labels: users,
@@ -96,39 +186,24 @@ const Dashboard = () => {
     ],
   };
 
-  // Logic for putting users data into a line chart
-  const getusers = async () => {
-    const res = await axios.get(`${BACkEND_URL}/users`).then((response) => {
-      setName(response.data.map((ele) => ele.FirstName));
-      setDate(response.data.map((ele) => new Date(ele.createdAt).getMonth()));
-      setYear(
-        response.data.map((ele) => new Date(ele.createdAt).getUTCFullYear())
-      );
-    });
-  };
-  let data2 = {
-    labels: name,
-    datasets: [
-      {
-        label: "users registration",
-        data: date,
-        backgroundColor: "yellow",
-        borderColor: "red",
-      },
-    ],
-  };
-  let data3 = {
-    labels: name,
-    datasets: [
-      {
-        label: "users registration",
-        data: year,
-        backgroundColor: "yellow",
-        borderColor: "red",
-      },
-    ],
-  };
+  useEffect(() => {
 
+  }, []);
+  // [
+  //   { name: "January", id: 1 },
+  //   { name: "february", id: 2 },
+  //   { name: "march", id: 3 },
+  //   { name: "april", id: 4 },
+  //   { name: "may", id: 5 },
+  //   { name: "june", id: 6 },
+  //   { name: "july", id: 7 },
+  //   { name: "august", id: 8 },
+  //   { name: "september", id: 9 },
+  //   { name: "october", id: 10 },
+  //   { name: "november", id: 11 },
+  //   { name: "december", id: 12 },
+  // ]
+ 
   const setbuttondata = () => {
     setButton(false);
   };
@@ -141,7 +216,6 @@ const Dashboard = () => {
     getpostsdata();
     getusersinfo();
     getproducts();
-    getusers();
   }, []);
 
   return (
