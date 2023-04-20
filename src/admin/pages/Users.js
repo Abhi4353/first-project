@@ -7,13 +7,17 @@ import { Link } from "react-router-dom";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
+  const[count,setCount]=useState(0);
+  const[start,setStart]=useState(0);
+  const[total,setTotal]=useState(5);
   // const[userStatus,setUserStatus] = useState("");
   const getregisteredusers = async () => {
     const res = await axios.get(`${BACkEND_URL}/users`);
     setUsers(res.data.filter((ele) => ele.status === true) );
+    setCount((res.data.filter((ele) => ele.status === true).length))
     console.log(
       "res",
-      res.data.filter((ele) => ele.status === true)
+      (res.data.filter((ele) => ele.status === true).length)
     );
   };
   const deleteuserstatus = () => {};
@@ -34,6 +38,35 @@ const Users = () => {
     });
     setSta(e.target.checked);
   };
+
+
+  const checkpreviousdata = () => {
+    if(start === 0){
+      setStart(0)
+      setTotal(5)
+    }
+    else{
+      setStart(start-5)
+      setTotal(total-5)
+    }
+   
+  }
+
+  const checknextdata = () => {
+    if(total > count){
+      setStart(start)
+      setTotal(total)
+    }
+    else{
+      setStart(start+5)
+      setTotal(total+5)
+    }
+  }
+
+
+
+
+
   return (
     <>
       <Layout1>
@@ -54,7 +87,7 @@ const Users = () => {
                  
                 <tbody>
 
-                      {users.length !== 0 && users.map((ele, key) => (
+                      {users.length !== 0 && users.slice(start,total).map((ele, key) => (
                         <tr key={key}>
                           <td>{ele.FirstName}</td>
                           <td>{ele.LastName}</td>
@@ -78,13 +111,14 @@ const Users = () => {
                         </tr>
                       ))}
                 </tbody>
-
-                  
-              </table>
-
+               </table>
               {users.length === 0 ?<p className="text-center"> no data found !</p> :""}
             </div>
           </div>
+          <div className="row button-prev-next">
+          {start >= 5 ? <button className="btn btn-secondary w-25" type="button" onClick={checkpreviousdata}>Previous</button> : ""}
+          {count >= 6 && total < count ? <button className="btn btn-success  w-25" type="button" onClick={checknextdata}>Next</button> : ""}
+        </div>
         </div>
       </Layout1>
     </>

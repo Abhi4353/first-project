@@ -97,7 +97,7 @@ const Registration = () => {
                 ></input>
                 <label>Password</label>
                 <input
-                  type="text"
+                  type="password"
                   className="form-control"
                   onChange={(e) => setPassword(e.target.value)}
                 ></input>

@@ -52,7 +52,6 @@ const Manageproducts = () => {
                   <th>Description</th>
                   <th>Image</th>
                   <th>Action</th>
-                  <th>Status</th>
                 </tr>
               </thead>
               <tbody>
@@ -70,8 +69,10 @@ const Manageproducts = () => {
                         <img src={`${BACkEND_URL}/uploads/${ele.image}`}></img>
                       </Link>
                     </td>
-                    <td></td>
-                    <td></td>
+                    <td className="action-button">
+                      <button type="button" className="btn btn-success">Update</button>
+                      <button type="button" className="btn btn-danger">Delete</button>
+                    </td>
                   </tr>
                 ))}
               </tbody>

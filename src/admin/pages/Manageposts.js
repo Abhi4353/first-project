@@ -102,7 +102,7 @@ const Manageposts = () => {
         </div>
         <div className="row button-prev-next">
           {start >= 5 ? <button className="btn btn-secondary w-25" type="button" onClick={checkpreviousdata}>Previous</button> : ""}
-          {count > 6 && total < count ? <button className="btn btn-success  w-25" type="button" onClick={checknextdata}>Next</button> : ""}
+          {count >= 6 && total < count ? <button className="btn btn-success  w-25" type="button" onClick={checknextdata}>Next</button> : ""}
         </div>
       </div>
     </Layout1>
