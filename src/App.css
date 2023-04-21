@@ -284,10 +284,17 @@ i.fa.fa-cart-plus {
 }
 
 /* CSS For Single Page Buttons */
-.single-product-button {
-  margin-left: 185px;
+.single-product-button button {
+  margin-left: 169px;
+  margin-top: 40px;
 }
 
+.single-product-statement h1 {
+  font-size: 50px;
+  font-weight: 700;
+  color: #ab544e;
+  margin-bottom: 28px;
+}
 
 .posts-component{
   width: 29% !important;

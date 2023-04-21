@@ -2,7 +2,7 @@ import React, { Children } from 'react'
 import Layout from '../layout/Layout';
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ThemeContext from '../components/ThemeContext';
 import { useContext } from 'react';
 import { BACkEND_URL } from '../config/config';
@@ -20,6 +20,7 @@ const Product = () => {
      const[showbutton,setshowbutton]=useState(true);
      const { theme, toggleTheme } = useContext(ThemeContext);
      const { Category } = useParams();
+ 
   
     const getApiData = async () => {
       setLoader(true);
@@ -30,8 +31,9 @@ const Product = () => {
     };
 
     //  Logic for Products to be added in cart
+    const navigate = useNavigate()
     const addtoCart = ()=>{
-      setCount(count +1)
+  navigate("/payment");
      }
      const deletefromCart =()=>{
       if(count<=0){
@@ -82,7 +84,6 @@ const Product = () => {
     
 
       useEffect(()=>{
-       addtoCart();
        getApiData();
        deletefromCart();
       },[])
@@ -180,10 +181,10 @@ const Product = () => {
                     {/* <p>
                       <b>Category : {ele?.Category}</b>
                     </p> */}
-                    <button type="button" className="btn btn-primary mb-4" onClick={()=>addtoCart()}>
-                      Add to Cart
+                    <button type="button" className="btn btn-success mb-4" onClick={addtoCart}>
+                      Buy Now
                     </button>
-                    <button type="button" className="btn btn-danger mb-4" onClick={()=>deletefromCart()}>Remove</button>
+                    {/* <button type="button" className="btn btn-danger mb-4" onClick={()=>deletefromCart()}>Remove</button> */}
                   </div>
                 </div>
               ))}

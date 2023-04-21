@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { useContext } from "react";
 import ThemeContext from "../components/ThemeContext";
 import { BACkEND_URL } from "../config/config";
+import { Link } from "react-router-dom";
 
 const Singleproduct = () => {
   const{theme,toggleTheme}=useContext(ThemeContext)
@@ -27,6 +28,15 @@ const Singleproduct = () => {
       getSingleData();
     }, []);
     // console.log(mydata);
+
+ const addtoCart = () => {
+
+ }
+   
+
+
+
+
   return (
     <Layout>
     <>
@@ -46,8 +56,10 @@ const Singleproduct = () => {
               <p>Description : {mydata?.Description}</p>
               <h3>Price: {mydata?.Price}</h3>
               <div className="single-product-button">
-              <button type="button" className="btn btn-primary">Add to Cart</button>
-              <button type="button" className="btn btn-danger">Remove</button>
+              <Link to="https://buy.stripe.com/test_28o6qqaKZgR8cb6288" target="_blank"><button type="button" className="btn btn-success w-50" >
+                      Buy Now
+                    </button></Link>
+              {/* <button type="button" className="btn btn-danger">Remove</button> */}
               </div>
             </div>
           </div>

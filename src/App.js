@@ -25,6 +25,7 @@ import Manageusers from "./admin/pages/Manageusers";
 import Manageproducts from "./admin/pages/Manageproducts";
 import Manageposts from "./admin/pages/Manageposts";
 import Updatepost from "./admin/pages/Updatepost";
+import Payment from "./pages/Payment";
 
 function App() {
   return (
@@ -57,6 +58,13 @@ function App() {
             <Route exact path="/contactdata" element={<FormData />} />
             <Route exact path="/posts" element={<Posts />} />
             <Route exact path="/singlepost/:_id" element={<Singleposts />} />
+            <Route exact path="/payment" element={<Payment />} />
+
+            
+            
+
+
+
             </Route>
           </Routes>
         </Router>
