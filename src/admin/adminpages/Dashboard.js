@@ -52,7 +52,7 @@ const Dashboard = () => {
       },
       title: {
         display: true,
-        text: "Chart.js Bar Chart",
+        text: "Chart for user registrations check",
       },
     },
   };
@@ -60,6 +60,7 @@ const Dashboard = () => {
   // Logic for getting users data to show counting of users , users requests and posts.
   const getusersinfo = async () => {
     const res = await axios.get(`${BACkEND_URL}/users`);
+     console.log("Sdfsd")
     setCount(res.data.filter((ele) => ele.status === true).length);
     setRequests(res.data.filter((ele) => ele.status === false).length);
     setDate(res.data.filter((ele) => ele.status === true).map((ele)=>new Date(ele.createdAt).getMonth()+1));

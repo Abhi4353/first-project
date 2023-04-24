@@ -35,6 +35,9 @@ const Product = () => {
     const addtoCart = ()=>{
   navigate("/payment");
      }
+
+
+     
      const deletefromCart =()=>{
       if(count<=0){
         setCount(0)

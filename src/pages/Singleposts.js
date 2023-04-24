@@ -3,7 +3,7 @@ import Layout from "../layout/Layout";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { BACkEND_URL } from "../config/config";
-import { ToastContainer,toast } from "react-toastify";
+import {toast } from "react-toastify";
 
 const Singleposts = () => {
   const [loader, setLoader] = useState(false);
@@ -20,7 +20,7 @@ const Singleposts = () => {
     const res = await axios.get(`${BACkEND_URL}/singlepost?id=${_id}`);
     setMyData(res.data);
     setLoader(false);
-    console.log(res.data);   
+   
   };
 
   
@@ -99,7 +99,7 @@ const Singleposts = () => {
                   >
                     Submit
                   </button>
-                  <ToastContainer position="top-center" />
+                 
                 </div>
               </form>
             </div>

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import data from "../pages/Checking.json";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BACkEND_URL } from "../config/config";
 import axios from "axios";
@@ -119,7 +119,7 @@ const Registration = () => {
                 </p>
                 {/* <input type="submit" value="Forget password" className='mt-3'></input> */}
                 {/* <p>{check==true ?"Please enter correct Email Id or Password" : ""}</p> */}
-                <ToastContainer position="top-center" />
+           
               </div>
             </form>
           </div>

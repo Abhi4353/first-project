@@ -32,9 +32,9 @@ const Updatepost = () => {
       }
       else{
         const res = await axios.post(`${BACkEND_URL}/updateposts?id=${_id}`, {
-          Title : title,
-          Id : Id,
-          Body : body
+         title,
+       Id,
+          body
        })
        toast.success("Post Updated Successfully");
        console.log("updated")

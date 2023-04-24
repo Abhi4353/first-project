@@ -4,7 +4,7 @@ import ThemeContext from '../components/ThemeContext'
 import { useContext } from 'react'
 import axios from 'axios'
 import { BACkEND_URL } from '../config/config'
-import { ToastContainer, toast } from 'react-toastify'
+import {toast } from 'react-toastify'
 
 const Contact = () => {
   const { theme} = useContext(ThemeContext);
@@ -25,7 +25,7 @@ const Contact = () => {
       gender == "" && 
       message == "" 
     ) {
-      toast.error("please fill out all the fields")
+      toast.error("please fill out all the fields");
     }
     else{
   const res = await axios.post(`${BACkEND_URL}/contact`, {
@@ -36,18 +36,18 @@ const Contact = () => {
      Message : message,
   })
   .then(function(response) {
+    if(response.status === 200){
+      toast.success("Thanks for contacting us")
+    }
     // console.log(response.status)
-    toast.success("Thanks for contacting us")
+    
   })
   .catch(function(error){
     // console.log(error.response.error)
     toast.error("Something went wrong")
   })
 } }
-  // useEffect(() =>{
-  //  addformdata();
-  // }, [])
- 
+
   return (
     <Layout>
       <div className={theme}>
@@ -71,7 +71,7 @@ const Contact = () => {
                 <label>Enter Your Message Here</label>
                 <textarea className='form-control' onChange={(e)=>setMessage(e.target.value)}></textarea><br></br>
                 <button type='button' className='btn btn-primary mt-2' onClick={addformdata} >Submit</button>
-                <ToastContainer position="top-center" />
+
               </div>
               </form>
          </div>

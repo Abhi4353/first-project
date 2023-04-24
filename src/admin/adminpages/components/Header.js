@@ -34,6 +34,8 @@ const Header = () => {
 // logic for know how much requests in the request panel
  const getrequestsdata = async() => {
    const count = await axios.get(`${BACkEND_URL}/users`)
+   console.log("Sdfsd")
+
    setRequest((count.data.filter((ele) => ele.status === false)).length);
  }
 
@@ -49,7 +51,7 @@ const Header = () => {
 
 useEffect(()=> {
   getrequestsdata();
-})
+},[])
 
 
 

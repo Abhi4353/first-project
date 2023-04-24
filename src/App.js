@@ -59,13 +59,7 @@ function App() {
             <Route exact path="/posts" element={<Posts />} />
             <Route exact path="/singlepost/:_id" element={<Singleposts />} />
             <Route exact path="/payment" element={<Payment />} />
-
-            
-            
-
-
-
-            </Route>
+           </Route>
           </Routes>
         </Router>
       </ThemeProvider>
