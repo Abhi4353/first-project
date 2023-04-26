@@ -26,6 +26,7 @@ import Manageproducts from "./admin/pages/Manageproducts";
 import Manageposts from "./admin/pages/Manageposts";
 import Updatepost from "./admin/pages/Updatepost";
 import Payment from "./pages/Payment";
+import Updateproducts from "./admin/pages/Updateproducts";
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
               <Route path="/manageproducts" element={<Manageproducts />}/>
               <Route path="/manageposts" element={<Manageposts/>}/>
               <Route path="/updatepost/:_id" element={<Updatepost />}/>
+              <Route path="/updateproduct/:_id" element={<Updateproducts />}/>
             </Route>
             <Route path="/" element={<Privateloginroute/>}>
             <Route path="/home" element={<Home />} />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   useStripe,
   useElements,
@@ -11,10 +11,19 @@ import { loadStripe } from "@stripe/stripe-js";
 
 import axios from "axios";
 import { useState } from "react";
+import { BACkEND_URL } from "../config/config";
+import { json, useParams } from "react-router-dom";
 
 const PaymentForm = () => {
+  const[name,setName] = useState("")
+  const[email,setEmail]= useState("")
+  const[price,setPrice]=useState();
+  const {_id}= useParams();
+
+
   const stripe = useStripe();
-  console.log("stripe", stripe);
+
+
   const elements = useElements();
   const stripePromise = loadStripe(
     "pk_test_51MzM68SFvAwmLw7YVxrpPwHJr3QVpyrQdn89WLkDR1oVrp3qSodrV7vQUNSBEmd17sJKMusmCic3d4d4lo1h7iIK00IKLa3Wa8"
@@ -46,49 +55,63 @@ const PaymentForm = () => {
       },
     },
   };
+
+
   const createpaymentmethod = async (data) => {
-    const toek = await stripe.createToken(elements)
-
-     console.log("toek0", toek)
-
     const payment = await axios
-      .post("http://localhost:8000/createpayment", {
-        customer: data.data.id,
-        payment_method_types: ["card"],
-        amount: 5.0,
-        currency: "usd",
-        card: elements.getElement(CardElement),
-
-        setup_future_usage: "off_session",
-        description: "Payment for Product XYZ",
-       
-        metadata: { 
-          product_id: "prod_NkrwO3Dzg3LYLe",
-        },
-      })
-      .then((res) => console.log(res))
+      .post("http://localhost:8000/createpayment", data)
+      .then((res) => console.log("straipe",res))
       .catch((err) => console.log(err));
   };
+
+
   const createPayment = async () => {
+    const CardElement= elements.getElement(CardNumberElement)
+    const toek = await stripe.createToken(CardElement)
+  
+     console.log("toek0", toek)
+
     const data = await axios
       .post("http://localhost:8000/createCustomer", {
-        name: "asdd",
-        email: "sadsd@gmail.com",
+        name: name,
+        email: email,
+        token: toek.token.id,
+        
       })
-      .then((res) =>  createpaymentmethod(res));
+      .then(async(res) =>  {
+        const payment = await stripe.confirmCardPayment(res.data.data.client_secret,{
+          payment_method:{
+            card:CardElement
+          }
+        })
+        console.log(payment)
+      });
+ 
   };
+   
+
+  // const getapidata = async() => {
+  //   const res = await axios.get(`${BACkEND_URL}/singleproduct?id=${_id}`)
+  //   console.log(res.data)
+  // }
+
+
+  // useEffect(()=>{
+  //   getapidata();
+  // })
 
   return (
-    <div className="">
+    <div className="container-fluid stripe-payment w-50">
       <div className="row">
-        <h6>Debit/Credit Card Information</h6>
+        <h3>Debit/Credit Card Information</h3>
 
         <div className="col-lg-12 mb-3">
+        
           <h6>Card Number</h6>
 
           <div className="stripecard-container">
             <div className="stripe_card_number">
-              <CardNumberElement options={cardStyle} className="form-control" />
+              <CardNumberElement options={cardStyle} className="form-control stripe_card_number" />
             </div>
           </div>
         </div>
@@ -104,15 +127,24 @@ const PaymentForm = () => {
             <CardCvcElement options={cardStyle} className="form-control" />
           </div>
         </div>
-        <div className="col-lg-6"></div>
-      </div>
-      <hr />
-
-      <div className="buttons">
+        <div className="col-lg-6">
+          <h6>Name On Card</h6>
+          <div className="stripe_card_cvv">
+           <input type="text" className="form-control" required="required" onChange={(e)=>setName(e.target.value)}/>
+   
+          </div>
+        </div>
+        <div className="col-lg-6">
+          <h6>Email Id</h6>
+          <div className="stripe_card_cvv">
+           <input type="email" className="form-control" required="required" onChange={(e)=>setEmail(e.target.value)} />
+          </div>
+        </div>
+        <div className="buttons">
         <button
           id="complete order"
           type="button"
-          className="btn btn-light"
+          className="btn btn-primary buttons-stripe-payment w-50"
           onClick={(e) => {
             createPayment();
           }}
@@ -120,6 +152,10 @@ const PaymentForm = () => {
           Complete Order
         </button>
       </div>
+      </div>
+      <hr />
+
+     
       {/* <Loader loader={loader} /> */}
     </div>
   );

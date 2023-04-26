@@ -19,7 +19,7 @@ const Header = () => {
   const getadmindata = async() =>{
     const res = await axios.get(`${BACkEND_URL}/admin`)
     setAdmin(res.data);
-    console.log(res.data);
+    // console.log(res.data);
   }
   useEffect(()=>{
     getadmindata();
@@ -34,7 +34,7 @@ const Header = () => {
 // logic for know how much requests in the request panel
  const getrequestsdata = async() => {
    const count = await axios.get(`${BACkEND_URL}/users`)
-   console.log("Sdfsd")
+  //  console.log("Sdfsd")
 
    setRequest((count.data.filter((ele) => ele.status === false)).length);
  }

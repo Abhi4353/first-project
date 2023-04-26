@@ -10,8 +10,10 @@ const Users = () => {
   const[count,setCount]=useState(0);
   const[start,setStart]=useState(0);
   const[total,setTotal]=useState(5);
+
   // const[userStatus,setUserStatus] = useState("");
   const getregisteredusers = async () => {
+  
     const res = await axios.get(`${BACkEND_URL}/users`);
     setUsers(res.data.filter((ele) => ele.status === true) );
     setCount((res.data.filter((ele) => ele.status === true).length))

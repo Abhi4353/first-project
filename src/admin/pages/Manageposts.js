@@ -85,7 +85,7 @@ const Manageposts = () => {
                         className="btn btn-success"
                         
                       >
-                        Update
+                        Edit
                       </button></Link>
                       <button
                         className="btn btn-danger"

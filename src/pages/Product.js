@@ -32,7 +32,7 @@ const Product = () => {
 
     //  Logic for Products to be added in cart
     const navigate = useNavigate()
-    const addtoCart = ()=>{
+    const addtoCart = (_id)=>{
   navigate("/payment");
      }
 
@@ -184,7 +184,7 @@ const Product = () => {
                     {/* <p>
                       <b>Category : {ele?.Category}</b>
                     </p> */}
-                    <button type="button" className="btn btn-success mb-4" onClick={addtoCart}>
+                    <button type="button" className="btn btn-success mb-4" onClick={()=>addtoCart(ele?._id)}>
                       Buy Now
                     </button>
                     {/* <button type="button" className="btn btn-danger mb-4" onClick={()=>deletefromCart()}>Remove</button> */}

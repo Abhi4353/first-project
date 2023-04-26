@@ -12,7 +12,7 @@ const Manageproducts = () => {
     const res = await axios.get(`${BACkEND_URL}/getproducts`);
     setCount(res.data.length);
     setProducts(res.data);
-    console.log(products);
+    // console.log(products);
   };
 
   const checkpreviousdata = () => {
@@ -34,6 +34,11 @@ const Manageproducts = () => {
       setTotal(total + 5);
     }
   };
+
+  const deleteproduct = async(id) => {
+    const res = await axios.post(`${BACkEND_URL}/deleteproduct?id=${id}`)
+    getProducts();
+  }
 
   useEffect(() => {
     getProducts();
@@ -70,8 +75,9 @@ const Manageproducts = () => {
                       </Link>
                     </td>
                     <td className="action-button">
-                      <button type="button" className="btn btn-success">Update</button>
-                      <button type="button" className="btn btn-danger">Delete</button>
+                      <Link to={`/updateproduct/${ele._id}`}> <button  className="btn btn-success">Edit</button></Link>
+                     
+                      <button type="button" className="btn btn-danger" onClick={()=>deleteproduct(ele._id)}>Delete</button>
                     </td>
                   </tr>
                 ))}

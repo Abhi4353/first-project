@@ -12,12 +12,12 @@ const[password,setPassword] =useState("");
 const navigate = useNavigate();
 const token = localStorage.getItem("token")
 useEffect(()=>{
-    console.log(token)
+    // console.log(token)
      if(token !== null){
       navigate("/admindashboard")
      }
 
- console.log("yess")
+//  console.log("yess")
 },[])
 const checklogin = async() =>{
    const res = await axios.post(`${BACkEND_URL}/admin`, {

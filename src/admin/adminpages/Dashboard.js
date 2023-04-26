@@ -60,6 +60,7 @@ const Dashboard = () => {
   // Logic for getting users data to show counting of users , users requests and posts.
   const getusersinfo = async () => {
     const res = await axios.get(`${BACkEND_URL}/users`);
+    
      console.log("Sdfsd")
     setCount(res.data.filter((ele) => ele.status === true).length);
     setRequests(res.data.filter((ele) => ele.status === false).length);
@@ -205,7 +206,7 @@ const Dashboard = () => {
       tfive,
       tsix
     );
-   console.log("Years data",yeararr)
+  //  console.log("Years data",yeararr)
     let data3 = {
       labels: ["2016","2017","2018","2019","2019","2020","2021","2022","2023","2024","2025","2026"],
       datasets: [
@@ -249,9 +250,9 @@ const Dashboard = () => {
     ],
   };
 
-  useEffect(() => {
+  // useEffect(() => {
 
-  }, []);
+  // }, []);
 
  
   const setbuttondata = () => {
