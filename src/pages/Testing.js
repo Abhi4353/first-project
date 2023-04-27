@@ -20,6 +20,8 @@ const Testing = () => {
     }
 
     const verifyotp = async() => {
+
+        
         setBox(false)
         setButton(false)
         const res = await axios.post(`${BACkEND_URL}/verify`,{
