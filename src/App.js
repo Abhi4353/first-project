@@ -27,6 +27,7 @@ import Manageposts from "./admin/pages/Manageposts";
 import Updatepost from "./admin/pages/Updatepost";
 import Payment from "./pages/Payment";
 import Updateproducts from "./admin/pages/Updateproducts";
+import Testing from "./pages/Testing";
 
 function App() {
   return (
@@ -62,6 +63,7 @@ function App() {
             <Route exact path="/singlepost/:_id" element={<Singleposts />} />
             <Route exact path="/payment" element={<Payment />} />
            </Route>
+           <Route path="/testingphone" element={<Testing />}/>
           </Routes>
         </Router>
       </ThemeProvider>

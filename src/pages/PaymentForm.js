@@ -12,7 +12,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 import { useState } from "react";
 import { BACkEND_URL } from "../config/config";
-import { json, useParams } from "react-router-dom";
+import { Navigate, json, useNavigate, useParams } from "react-router-dom";
 
 const PaymentForm = () => {
   const[name,setName] = useState("")
@@ -22,7 +22,7 @@ const PaymentForm = () => {
 
 
   const stripe = useStripe();
-
+  const navigate = useNavigate();
 
   const elements = useElements();
   const stripePromise = loadStripe(
@@ -68,8 +68,7 @@ const PaymentForm = () => {
   const createPayment = async () => {
     const CardElement= elements.getElement(CardNumberElement)
     const toek = await stripe.createToken(CardElement)
-  
-     console.log("toek0", toek)
+
 
     const data = await axios
       .post("http://localhost:8000/createCustomer", {
@@ -84,7 +83,13 @@ const PaymentForm = () => {
             card:CardElement
           }
         })
-        console.log(payment)
+        console.log("response", res);
+        if(res.data.message == "created"){
+          window.alert("Done")
+          navigate('/product')
+        }
+        console.log(payment);
+      
       });
  
   };
@@ -104,7 +109,7 @@ const PaymentForm = () => {
     <div className="container-fluid stripe-payment w-50">
       <div className="row">
         <h3>Debit/Credit Card Information</h3>
-
+    
         <div className="col-lg-12 mb-3">
         
           <h6>Card Number</h6>
