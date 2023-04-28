@@ -18,6 +18,7 @@ const PaymentForm = () => {
   const[name,setName] = useState("")
   const[email,setEmail]= useState("")
   const[price,setPrice]=useState();
+  const [loader, setLoader] = useState(false);
   const {_id}= useParams();
 
 
@@ -69,7 +70,7 @@ const PaymentForm = () => {
     const CardElement= elements.getElement(CardNumberElement)
     const toek = await stripe.createToken(CardElement)
 
-
+    setLoader(true)
     const data = await axios
       .post("http://localhost:8000/createCustomer", {
         name: name,
@@ -83,12 +84,13 @@ const PaymentForm = () => {
             card:CardElement
           }
         })
-        console.log("response", res);
+        // console.log("response", res);
         if(res.data.message == "created"){
-          window.alert("Done")
+          setLoader(false)
+          window.alert("Payment Done")
           navigate('/product')
         }
-        console.log(payment);
+        // console.log(payment);
       
       });
  
@@ -106,7 +108,9 @@ const PaymentForm = () => {
   // })
 
   return (
-    <div className="container-fluid stripe-payment w-50">
+    <div className="container-fluid stripe-payment">
+      {loader ? (<div className="loading-spinner"></div>) : (
+      "")}
       <div className="row">
         <h3>Debit/Credit Card Information</h3>
     
@@ -149,7 +153,7 @@ const PaymentForm = () => {
         <button
           id="complete order"
           type="button"
-          className="btn btn-primary buttons-stripe-payment w-50"
+          className="btn btn-primary buttons-stripe-payment "
           onClick={(e) => {
             createPayment();
           }}

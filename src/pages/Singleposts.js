@@ -65,7 +65,7 @@ const Singleposts = () => {
               </div>
             </div>
           </div>
-          <div className="container w-50 mb-5">
+          <div className="container mb-5 single-post-form">
             <div className="row">
               <form>
                 <div className="form-group post-form">

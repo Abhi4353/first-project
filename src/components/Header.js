@@ -17,7 +17,7 @@ const Header = () => {
     <>
       <div className={theme}>
         <nav className="navbar navbar-expand-lg ">
-          <div className="container">
+          <div className="container navbar-item-gap">
             <Link
               className="navbar-brand"
               to="/home"
@@ -27,18 +27,18 @@ const Header = () => {
               <b>Himalayan Store</b>{" "}
             </Link>
             <button
-              class="navbar-toggler"
+              className="navbar-toggler"
               type="button"
               data-toggle="collapse"
               data-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent"
-              aria-expanded="false"
+              aria-expanded="true"
               aria-label="Toggle navigation"
             >
-              <span class="navbar-toggler-icon"></span>
+              <span className="navbar-toggler-icon" />
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li className="nav-item">
                   <Link className="nav-link" to="/home">

@@ -138,7 +138,7 @@
 
 /* About Us PAge Css */
 .about-image img{
-  width: 100%;
+  width: 100% !important;
   margin-top: 80px;
 }
 .about-body {
@@ -175,10 +175,9 @@
   font-style: italic !important;
    font-weight: 600;
 }
-ul.navbar-nav.mx-auto.mb-2.mb-lg-0 {
-  font-size: 18px !important;
-  gap: 90px !important;
-
+.navbar-expand-lg .navbar-nav {
+  /* flex-direction: row; */
+  gap: 80px;
 }
 i.fa.fa-cart-plus {
   font-size: 25px;
@@ -215,6 +214,10 @@ i.fa.fa-cart-plus {
 /* product page css */
 .product-component {
   padding-top: 50px;
+}
+.product-component6{
+  padding-top: 50px;
+
 }
 .products{
   text-align: center;
@@ -259,7 +262,10 @@ i.fa.fa-cart-plus {
   font-size: 21px;
   font-weight: 700;
 }
+.pro-side-head button:hover{
+  background-color: #43c9be;
 
+}
 .product-component2{
   background-color: #43c9be;
   color: white;
@@ -287,8 +293,12 @@ i.fa.fa-cart-plus {
 .single-product-button button {
   margin-left: 169px;
   margin-top: 40px;
+  width: 50%;
 }
 
+.single-product-statement {
+  width: 50% !important;
+}
 .single-product-statement h1 {
   font-size: 50px;
   font-weight: 700;
@@ -347,6 +357,7 @@ font-weight: 700;
 }
 .button-prev-next{
   display: flex;
+  /* width: 100%; */
   justify-content: center;
   padding-bottom: 30px;
 }
@@ -375,8 +386,140 @@ font-weight: 700;
   font-size: 20px;
 }
 .buttons-stripe-payment {
+  width: 50% !important;
   display: flex !important;
   justify-content: center !important;
   margin: 37px 0px 10px 170px;
   border-radius: 40px !important;
+}
+
+
+/* ********************CSS for mobile view of website********************* */
+
+
+
+
+@media screen and (min-width:320px) and (max-width:767px){
+
+.row.customer-component .col-3 {
+  width: 50%;
+  text-align: center;
+}
+.body-content2 p {
+  margin-left: 0;
+}
+.body-content2 h1 { 
+  font-size: 22px;
+}
+.bottom-nav-content .col-4 {
+  width: 50%;
+  flex: 50%;
+}
+.home-body .col-5 {
+  /* flex: 0 0 auto; */
+  width: 100%;
+}
+.home-body {
+  background-position: bottom right;
+  background-size: contain;
+}
+.bottom-nav-content ul {
+  padding: 0;
+}
+/* .navbar-toggle{
+  border: 1px solid aqua !important;
+} */
+.body-content2 h1 {
+  font-size: 15px;
+}
+.body-content2 p {
+  margin-left: 0;
+  font-size: 10px;
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+.navbar-toggler {
+  background-color: #d3e0e7 !important;
+}
+.customer-component {
+  padding-top: 32px;
+  padding-bottom: 32px;
+  padding-left: 0px; 
+  /* font-size: 3px; */
+}
+.customer-component a{
+  font-size: 10px;
+}
+ul.navbar-nav.mx-auto.mb-2.mb-lg-0 {
+  font-size: 18px !important;
+  gap: 5px;
+
+}
+.product-data{
+  width: 100% !important;
+}
+.product-component2 .col-4{
+  width: 70% !important;
+
+}
+.product-sidebar{
+  width: 100% !important;
+}
+.product-component6 .col-4{
+  width: 75% !important;
+}
+.container.about-image2 img {
+  width: 250px !important;
+  display: flex;
+  margin-left: 30px;
+}
+.about-image img{
+  width: 300px;
+  margin: 0px !important;
+}
+.about-body2 .col{
+  width: 100%;
+}
+.posts-phone-view .col4{
+  width: 100% !important;
+}
+.posts-col img{
+  width: 100% !important;
+}
+.button-prev-next{
+  padding: 0px !important;
+  margin: 0px !important;
+}
+.posts-component{
+  width: 90% !important;
+  margin: 17px;
+}
+.single-post .col-6{
+  width: 100% !important;
+}
+.single-post img {
+  width: 100%;
+}
+.single-post-form{
+  width: 100%;
+}
+.single-post-form p{
+  font-size: 20px;
+}
+.single-product-statement {
+  width: 100% !important;
+}
+.single-product-button button{
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+.stripe-payment{
+  width: 85% !important;
+}
+.buttons-stripe-payment{
+  width: 100% !important;
+  margin: 20px 0 0 0;
+}
 }

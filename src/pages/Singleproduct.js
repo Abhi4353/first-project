@@ -56,7 +56,7 @@ const Singleproduct = () => {
               <p>Description : {mydata?.Description}</p>
               <h3>Price: {mydata?.Price}</h3>
               <div className="single-product-button">
-              <Link to="https://buy.stripe.com/test_28o6qqaKZgR8cb6288" target="_blank"><button type="button" className="btn btn-success w-50" >
+              <Link to="https://buy.stripe.com/test_28o6qqaKZgR8cb6288" target="_blank"><button type="button" className="btn btn-success " >
                       Buy Now
                     </button></Link>
               {/* <button type="button" className="btn btn-danger">Remove</button> */}

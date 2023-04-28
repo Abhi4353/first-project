@@ -51,7 +51,7 @@ const Posts = () => {
                 </div>
               </div>
             </div>
-            <div className="container">
+            <div className="container posts-phone-view">
               <div className="row mt-5">
                 {myData.slice(start,total).map((ele, key) => (
                   <div className="col-4 posts-component">
@@ -76,10 +76,14 @@ const Posts = () => {
                   </div>
                 ))}
               </div>
+              <div className="row ">
+              <div className="container button-prev-next">
+              {start > 0 ?<button type="button" className="btn btn-secondary w-25" onClick={showprevvalue}>Previous</button> : ""} 
+              {total <= button ?<button type="button" className="btn btn-primary w-25" onClick={shownextvalue}>Next</button> : ""}     
+              </div>
             </div>
-            <div className="row button-prev-next">
-           {start > 0 ?<button type="button" className="btn btn-secondary w-25" onClick={showprevvalue}>Previous</button> : ""} 
-           {total <= button ?<button type="button" className="btn btn-primary w-25" onClick={shownextvalue}>Next</button> : ""}
+            
+           
            </div>
           </div>
         </>

@@ -163,8 +163,8 @@ const Product = () => {
                   </div>
                 </div>
               </div>
-              <div className='col-10'>
-                <div className='container-fluid product-component'>
+              <div className='col-10 product-data'>
+                <div className='container-fluid product-component6'>
                   <div className='row'>
 
                   
