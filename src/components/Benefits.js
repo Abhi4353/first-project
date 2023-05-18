@@ -2,7 +2,7 @@ import React from 'react'
 
 const Benefits = () => {
   return (
-    <div className='container-fluid benefits-component pb-5 mb-5'>
+    <div className='container-fluid benefits-component pb-5 '>
     <div className='row'>
       <div className='col'>
         <div className='container p-3'>

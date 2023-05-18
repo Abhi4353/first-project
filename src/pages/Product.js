@@ -7,6 +7,7 @@ import ThemeContext from '../components/ThemeContext';
 import { useContext } from 'react';
 import { BACkEND_URL } from '../config/config';
 import { useParams } from 'react-router-dom';
+import {toast } from 'react-toastify'
 
 const Product = () => {
     const [myData, setMyData] = useState([]);
@@ -34,17 +35,13 @@ const Product = () => {
     const navigate = useNavigate()
     const addtoCart = (_id)=>{
   navigate("/payment");
-     }
-
-
-     
-     const deletefromCart =()=>{
-      if(count<=0){
-        setCount(0)
-      }
-      else{
-        setCount(count -1)
-      }
+     } 
+     const additemtoCart = async(e, id)=>{
+       const res = await axios.post(`${BACkEND_URL}/cartitems?id=${id}`,{
+        status: "true",
+       })
+       getApiData();
+       toast.success("product added to cart");
     }
 
 
@@ -88,7 +85,6 @@ const Product = () => {
 
       useEffect(()=>{
        getApiData();
-       deletefromCart();
       },[])
    
   return (
@@ -180,14 +176,14 @@ const Product = () => {
 
                     <h3>{ele?.Title}</h3>
 
-                    <p>Price:-${ele?.Price}</p>
+                    <p>Price:-&nbsp;Rs&nbsp;{ele?.Price}</p>
                     {/* <p>
                       <b>Category : {ele?.Category}</b>
                     </p> */}
-                    <button type="button" className="btn btn-success mb-4" onClick={()=>addtoCart(ele?._id)}>
+                    {/* <button type="button" className="btn btn-success mb-4" onClick={()=>addtoCart(ele?._id)}>
                       Buy Now
-                    </button>
-                    {/* <button type="button" className="btn btn-danger mb-4" onClick={()=>deletefromCart()}>Remove</button> */}
+                    </button> */}
+                    <button type="button" className="btn btn-success mb-4" onClick={(e)=>additemtoCart(e, ele?._id)}>Add to Cart</button>
                   </div>
                 </div>
               ))}

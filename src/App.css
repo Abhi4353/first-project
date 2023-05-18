@@ -118,7 +118,7 @@
 /* Homepage Css Completed */
 /* Bottom Nav Css */
 .bottom-nav-content{
-  background-color: #605d5d;
+  background-color: #3b3434;
   padding: 30px;
 }
 .bottom-nav-content ul {
@@ -171,6 +171,8 @@
 
 /* Navbar Css */
 .nav-link{
+  display: flex;
+  width: max-content;
   color:#a84e4e !important;
   font-style: italic !important;
    font-weight: 600;
@@ -180,7 +182,18 @@
   gap: 80px;
 }
 i.fa.fa-cart-plus {
-  font-size: 25px;
+  font-size: 30px;
+  margin: 17px 0px 0px 100px;
+  cursor: pointer;
+}
+.header-right-content {
+  display: flex;
+  margin-top: -13px;
+}
+.header-right-content button {
+  height: fit-content;
+  width: max-content;
+  display: flex;
 }
 .body-content button {
   margin-top: 20px;
@@ -208,7 +221,7 @@ i.fa.fa-cart-plus {
 }
 /* benefits component css */
 .benefits-component{
-  background-color:#d3e0e7;
+  background-color:#fafafa;
   color: #a84e4e;
 }
 /* product page css */
@@ -269,6 +282,119 @@ i.fa.fa-cart-plus {
 .product-component2{
   background-color: #43c9be;
   color: white;
+}
+
+
+/* Showing Cart Data */
+.Cart-data-show {
+  height: 150px;
+  display: flex;
+  width: 100%;
+  border: 1px solid #151417;
+  margin-top: 70px;
+  border-radius: 40px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.inside-cart-container img {
+  height: 100px;
+  width: 120px;
+  border-radius: 15px;
+  display: flex;
+  margin-top: 24px;
+}
+.inside-cart-container-text {
+  /* display: flex; */
+  /* justify-content: left; */
+  margin-top: 14px;
+  font-size: 40px;
+  font-weight: 700;
+  color: #988773;
+}
+.inside-cart-container-quantity p {
+  font-size: 32px;
+  font-weight: 600;
+  margin-top: 21px;
+  color: #7bcc98;
+}
+.inside-cart-container-buttons button {
+  border-radius: 20px;
+  margin-top: 17px;
+  display: block;
+  width: 190px;
+  text-align: center;
+  margin-left: 90px;
+}
+.Cart-data-show2 {
+  height: 150px;
+  /* display: flex; */
+  width: 100%;
+  border: 1px solid #151417;
+  margin-top: 70px;
+  border-radius: 40px;
+  margin-bottom: 40px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.buy-all-container button {
+  border-radius: 20px;
+  margin-top: 35px;
+  display: block;
+  width: 220px;
+  height: 70px;
+  text-align: center;
+  margin-left: 90px;
+}
+.grand-total-container {
+  margin-top: 14px;
+  font-size: 40px;
+  font-weight: 700;
+  display: inline-block;
+  color: #988773;
+  font-family: 'FontAwesome';
+}
+
+/* CSS For Subscribe Component */
+.subscribe-main-div {
+  background-color: #39475d;
+  color: white;
+}
+
+.subscribe-text-heading {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.subscribe-text {
+  text-align: left;
+  font-size: 20px;
+}
+
+.subscribe-text-box input {
+  height: 45px;
+  width: 400px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 5px;
+}
+
+.subscribe-text-box {
+  display: flex;
+  gap: 20px;
+  margin-top: 35px;
+}
+
+.subscribe-text-box input::placeholder {
+  color: #39475d;
+  font-size: 17px;
+  font-weight: 200;
+  margin-left: 20px;
+}
+
+.subscribe-div {
+  display: flex;
+  justify-content: center;
+}
+
+.popular-places-images img:hover {
+  transform: translateY(-10px);
 }
 
 /* Contact Component CSS */
@@ -400,7 +526,9 @@ font-weight: 700;
 
 
 @media screen and (min-width:320px) and (max-width:767px){
-
+  .pro-side-head {
+    text-align: center;
+}
 .row.customer-component .col-3 {
   width: 50%;
   text-align: center;
@@ -441,6 +569,12 @@ font-weight: 700;
 }
 .navbar-toggler {
   background-color: #d3e0e7 !important;
+  display: flex;
+  margin-left: 120px;
+}
+.header-right-content {
+  display: flex;
+  margin-top: 10px;
 }
 .customer-component {
   padding-top: 32px;

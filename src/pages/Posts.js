@@ -4,6 +4,8 @@ import axios from "axios";
 import ThemeContext from "../components/ThemeContext";
 import { Link } from "react-router-dom";
 import { BACkEND_URL } from "../config/config";
+import usePagination from "./Pagination";
+import { Pagination } from "@mui/material";
 
 const Posts = () => {
   const [myData, setMyData] = useState([]);
@@ -12,10 +14,16 @@ const Posts = () => {
   const [start,setStart]=useState(0);
   const[total,setTotal]=useState(6);
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const [count, setCount] = useState(0);
+  const [page, setPage] = useState(1);
+  const PER_PAGE = 6;
+  const Data = usePagination(myData, PER_PAGE) 
+
 
   const getApiData = async () => {
     setLoader(true);
     const res = await axios.get(`${BACkEND_URL}/posts`);
+    setCount(Math.ceil(res.data.length/PER_PAGE))
     setButton((res.data).length)
     setMyData(res.data);
     setLoader(false);
@@ -30,6 +38,10 @@ const Posts = () => {
   const showprevvalue = () => {
     setStart(start - 5)
     setTotal(total-5)
+  }
+  const handlechange = (event, value) => {
+    setPage(value);
+    Data.jump(value);
   }
 
   useEffect(() => {
@@ -53,7 +65,7 @@ const Posts = () => {
             </div>
             <div className="container posts-phone-view">
               <div className="row mt-5">
-                {myData.slice(start,total).map((ele, key) => (
+                {Data.currentData().map((ele, key) => (
                   <div className="col-4 posts-component">
                     <div key={key} className="container posts-col">
                       <h4>{ele?.Title}</h4>
@@ -78,8 +90,10 @@ const Posts = () => {
               </div>
               <div className="row ">
               <div className="container button-prev-next">
-              {start > 0 ?<button type="button" className="btn btn-secondary w-25" onClick={showprevvalue}>Previous</button> : ""} 
-              {total <= button ?<button type="button" className="btn btn-primary w-25" onClick={shownextvalue}>Next</button> : ""}     
+              <Pagination count={count} page={page} variant="outlined" shape="rounded" onChange={handlechange} />
+
+              {/* {start > 0 ?<button type="button" className="btn btn-secondary w-25" onClick={showprevvalue}>Previous</button> : ""} 
+              {total <= button ?<button type="button" className="btn btn-primary w-25" onClick={shownextvalue}>Next</button> : ""}      */}
               </div>
             </div>
             

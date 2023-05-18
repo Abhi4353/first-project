@@ -4,6 +4,7 @@ import Banner from '../components/Banner'
 import Benefits from '../components/Benefits'
 import Customers from '../components/Customers'
 import ThemeContext from '../components/ThemeContext'
+import Subscribe from '../components/Subscribe'
 import { useContext } from 'react'
 const Home = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -13,7 +14,7 @@ const Home = () => {
 <Banner/>
 <Customers/>
 <Benefits/>
- 
+ <Subscribe/>
    </Layout>
    </div>
   )

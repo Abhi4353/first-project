@@ -28,6 +28,7 @@ import Updatepost from "./admin/pages/Updatepost";
 import Payment from "./pages/Payment";
 import Updateproducts from "./admin/pages/Updateproducts";
 import Testing from "./pages/Testing";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
             <Route path="/" element={<Privateloginroute/>}>
             <Route path="/home" element={<Home />} />
             <Route path="/product" element={<Product />} />
+            <Route path="/cartitems" element={<Cart/>}/>
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/singleproduct/:_id" element={<Singleproduct />} />
