@@ -19,9 +19,10 @@ const Login = () => {
         })
         .then(function (response) {
           console.log(response)
-          if(response.data == true){
+          if(response.data.data == true){
             navigate('/home');
-            localStorage.setItem("tokenforlogin", 5)
+            localStorage.setItem("tokenforlogin", response.data.token)
+            localStorage.setItem("token", response.data.userdata)
           }
           else{
             toast.error("Please enter correct username or password")

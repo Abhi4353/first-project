@@ -52,35 +52,34 @@ const Cart = () => {
             </div>
           </div>
         </div>
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+   
               {data.map((ele, key) => (
                 <div className="container">
                   <div className="row">
                     <div className="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                      <div className="Cart-data-show" key={key}>
-                        <div className="container">
+                      <div className="set-columns-margin"> 
+                        <div className="container-fluid">
                           <div className="row">
-                            <div className="col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                          <div className="Cart-data-show" key={key}>
+                            <div className="col-sm-12 col-md-2 col-lg-2 col-xl-2">
                               <div className="inside-cart-container">
                                 <img
                                   src={`${BACkEND_URL}/uploads/${ele.image}`}
                                 />
                               </div>
                             </div>
-                            <div className="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                            <div className="col-sm-12 col-md-4 col-lg-4 col-xl-4">
                               <div className="inside-cart-container-text">
                                 <p>{ele.Title}</p>
                                 <h5>Price:-&nbsp;Rs&nbsp;{ele.Price}</h5>
                               </div>
                             </div>
-                            <div className="col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                            <div className="col-sm-12 col-md-2 col-lg-2 col-xl-2">
                               <div className="inside-cart-container-quantity">
                                 <p>Quantity :-5</p>
                               </div>
                             </div>
-                            <div className="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                            <div className="col-sm-12 col-md-4 col-lg-4 col-xl-4">
                               <div className="inside-cart-container-buttons">
                                 <button
                                   type="button"
@@ -100,17 +99,20 @@ const Cart = () => {
                             </div>
                           </div>
                         </div>
+                        </div>
                         <div></div>
                       </div>
-                    </div>
+                      </div>
+                  
                   </div>
                 </div>
               ))}
-            </div>
+           
             <div className="col-sm-12 col-md-12 col-lg-12 col-xl-12">
               <div className="Cart-data-show2">
                 <div className="container-fluid">
                   <div className="row">
+                    <div className="set-columns-margin2">
                     <div className="col-sm-6 col-md-8 col-lg-8 col-xl-8">
                       <div className="grand-total-container">
                         <h1>Number Of Products :-&nbsp;&nbsp;{data.length}</h1>
@@ -128,12 +130,12 @@ const Cart = () => {
                         </button>
                       </div>
                     </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div></div>
+            </div>
       </Layout>
     </>
   );

@@ -6,7 +6,7 @@ const Subscribe = () => {
       <div className="container-fluid subscribe-main-div pt-5 pb-5">
         <div className="container subscribe-div">
           <div className="row">
-            <div className="col">
+            <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6">
               <div className="subscribe-text">
                 <p className="subscribe-text-heading">
                   Subscribe Our Newsletter
@@ -17,7 +17,7 @@ const Subscribe = () => {
                 </p>
               </div>
             </div>
-            <div className="col">
+            <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6">
               <div className="subscribe-text-box">
                 <input type="text" placeholder="Your Mail" />
                 <button type="button" className="btn btn-danger btn-lg">

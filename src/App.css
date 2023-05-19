@@ -179,7 +179,7 @@
 }
 .navbar-expand-lg .navbar-nav {
   /* flex-direction: row; */
-  gap: 80px;
+  gap: 40px;
 }
 i.fa.fa-cart-plus {
   font-size: 30px;
@@ -206,8 +206,9 @@ i.fa.fa-cart-plus {
 }
 .customer-component {
   padding-top: 100px;
-  padding-left:150px;
+  padding-left: 150px;
   padding-bottom: 100px;
+  background: aliceblue;
 }
 
 .customer-component a{
@@ -221,7 +222,7 @@ i.fa.fa-cart-plus {
 }
 /* benefits component css */
 .benefits-component{
-  background-color:#fafafa;
+  /* background-color:white; */
   color: #a84e4e;
 }
 /* product page css */
@@ -354,7 +355,7 @@ i.fa.fa-cart-plus {
 
 /* CSS For Subscribe Component */
 .subscribe-main-div {
-  background-color: #39475d;
+  background-color: #43c9be;
   color: white;
 }
 
@@ -518,7 +519,12 @@ font-weight: 700;
   margin: 37px 0px 10px 170px;
   border-radius: 40px !important;
 }
-
+.set-columns-margin {
+  margin: 40px 0px 0px 0px;
+}
+.set-columns-margin2 {
+  display: flex;
+}
 
 /* ********************CSS for mobile view of website********************* */
 
@@ -526,6 +532,30 @@ font-weight: 700;
 
 
 @media screen and (min-width:320px) and (max-width:767px){
+  .Cart-data-show {
+    height: auto;
+    display: block;
+    padding: 30px;
+    text-align: center;
+}
+.set-columns-margin {
+  margin: 40px 0px 0px 0px;
+}
+.set-columns-margin2 {
+  margin: 40px 0px 0px 0px;
+  display: block;
+}
+.inside-cart-container img{
+  display: initial;
+}
+.Cart-data-show2 {
+  height: auto;
+  padding: 0px 0px 30px 0px;
+}
+  .subscribe-div {
+    display: block;
+    /* justify-content: center; */
+}
   .pro-side-head {
     text-align: center;
 }

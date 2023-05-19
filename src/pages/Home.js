@@ -15,6 +15,7 @@ const Home = () => {
 <Customers/>
 <Benefits/>
  <Subscribe/>
+<Customers/>
    </Layout>
    </div>
   )
